@@ -3,7 +3,7 @@ def binary(column,column_name=None):
     cols = len(bin(unique)[2:])
     print('Number of unique values:', unique)
     print('Number of columns needed:',cols)
-    
+    print(str(type(column)))
     #if pandas == True
     if str(type(column)) == "<class 'pandas.core.series.Series'>":
         print('Pandas Series found!')
@@ -25,7 +25,6 @@ def binary(column,column_name=None):
         unique_set = list(set(column))
         unique_numbers = [x for x in range(len(unique_set))] 
         remap = dict(zip(unique_set, unique_numbers))
-        print(remap)
         column = list(column.replace(remap))
     
         #--set number of numbers expectations and add to DF--#
@@ -54,7 +53,6 @@ def binary(column,column_name=None):
         unique_set = list(set(column))
         unique_numbers = [x for x in range(len(unique_set))] 
         remap = dict(zip(unique_set, unique_numbers))
-        print(remap)
         
         #--remap dict to array--#
         copy_column = np.copy(column)
@@ -65,7 +63,7 @@ def binary(column,column_name=None):
         bins = []
         for i in column:
             binary = bin(i)[2:]
-            zeros = 3 - len(binary)
+            zeros = cols - len(binary)
             str_zeros = '0' * zeros
             binary = str_zeros + str(binary)
             bin_list = [int(i) for i in binary]
@@ -73,7 +71,7 @@ def binary(column,column_name=None):
         bins = np.array(bins)
         
         return bins
-    elif str(type([])) == "<class 'list'>":
+    elif str(type(column)) == "<class 'list'>":
         print('List found!')
         
         #--create dict of unique values--#
@@ -81,7 +79,6 @@ def binary(column,column_name=None):
         unique_set = list(set(column))
         unique_numbers = [x for x in range(len(unique_set))] 
         remap = dict(zip(unique_set, unique_numbers))
-        print(remap)
         for index, item in enumerate(column):
             column[index] = remap[item] 
         
@@ -89,7 +86,7 @@ def binary(column,column_name=None):
         bins = []
         for i in column:
             binary = bin(i)[2:]
-            zeros = 3 - len(binary)
+            zeros = cols - len(binary)
             str_zeros = '0' * zeros
             binary = str_zeros + str(binary)
             bin_list = [int(i) for i in binary]
