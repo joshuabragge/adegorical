@@ -1,58 +1,58 @@
-def binary(column,column_name=None):
+def get_binary(column,column_name=None):
     unique = len(set(column))
-    cols = len(bin(unique)[2:])
-    print('Number of unique values:', unique)
-    print('Number of columns needed:',cols)
-    print(str(type(column)))
-    #if pandas == True
-    if str(type(column)) == "<class 'pandas.core.series.Series'>":
-        print('Pandas Series found!')
-        import pandas as pd
-        #--generate column names--#
-        columns = []
-        if column_name == None:
-            column_name = 'binary'
-        for i in range(cols):
-            col_name_i = column_name + '_' + str(i)
-            columns.append(col_name_i)
-        #--create df--#
-        df = pd.DataFrame(columns)
+    number_of_columns = len(bin(unique)[2:])
     
-        #--create numberical remapping--#
-        
-        seen = set()
-        #unique_set = [x for x in df.color if x not in seen and not seen.add(x)]
+    #--returns dict for remapping categorical values to integers--#
+    def get_remapping_dict():
         unique_set = list(set(column))
         unique_numbers = [x for x in range(len(unique_set))] 
-        remap = dict(zip(unique_set, unique_numbers))
+        remap_dict = dict(zip(unique_set, unique_numbers)) 
+        return remap_dict
+    
+    #--ensures enough 0s are added to binary number if lt than max--#
+    def create_binary_number(integer,number_of_columns):
+        binary_value = bin(integer)[2:]
+        extra_zeros = (number_of_columns - len(binary_value)) * '0'
+        binary_value = extra_zeros + str(binary_value)
+        binary_list = [int(i) for i in binary_value]
+        return binary_list
+    
+    #if pandas == True
+    if str(type(column)) == "<class 'pandas.core.series.Series'>":
+        import pandas as pd
+        
+        #--create columns--#
+        if column_name == None:
+            column_name = 'binary'
+        columns = []
+        for i in range(number_of_columns):
+            col_name_i = column_name + '_' + str(i)
+            columns.append(col_name_i)
+    
+        #--create a dict of unique values and replace--#
+        remap = get_remapping_dict()
         column = list(column.replace(remap))
     
+        #--intialize df--#
+        binary_df = pd.DataFrame(columns)
+        
         #--set number of numbers expectations and add to DF--#
-
         for i in column:
-            binary = bin(i)[2:]
-            zeros = cols - len(binary)
-            str_zeros = '0' * zeros
-            binary = str_zeros + str(binary)
-            bin_list = [int(i) for i in binary]
-            df = pd.concat([df,pd.Series(bin_list)],axis=1)
+            binary_value = create_binary_number(i,number_of_columns)
+            binary_df = pd.concat([binary_df,pd.Series(binary_value)],axis=1)
         
         #--add column names and return transposed DF--#
+        binary_df.index = columns
+        binary_df = binary_df.T.reset_index().drop('index',axis=1).drop(0).reset_index().drop('index',axis=1)
         
-        df.index = columns
-        df = df.T
-        df = df.reset_index().drop('index',axis=1).drop(0).reset_index().drop('index',axis=1)
-        return df
+        return binary_df
     
     elif str(type(column)) == "<class 'numpy.ndarray'>":
-        print('Numpy Array found!')
+        
         import numpy as np
         
         #--create dict of unique values--#
-        seen = set()
-        unique_set = list(set(column))
-        unique_numbers = [x for x in range(len(unique_set))] 
-        remap = dict(zip(unique_set, unique_numbers))
+        remap = get_remapping_dict()
         
         #--remap dict to array--#
         copy_column = np.copy(column)
@@ -60,39 +60,29 @@ def binary(column,column_name=None):
         column = copy_column.astype(int)
         
         #--create and attach the binary numbers to a list--#
-        bins = []
+        binary_list = []
         for i in column:
-            binary = bin(i)[2:]
-            zeros = cols - len(binary)
-            str_zeros = '0' * zeros
-            binary = str_zeros + str(binary)
-            bin_list = [int(i) for i in binary]
-            bins.append(bin_list)
-        bins = np.array(bins)
+            binary_value = create_binary_number(i,number_of_columns)
+            binary_list.append(binary_value)
+        binary_array = np.array(binary_list)
         
-        return bins
+        return binary_array
+    
     elif str(type(column)) == "<class 'list'>":
-        print('List found!')
         
         #--create dict of unique values--#
-        seen = set()
-        unique_set = list(set(column))
-        unique_numbers = [x for x in range(len(unique_set))] 
-        remap = dict(zip(unique_set, unique_numbers))
+        remap = get_remapping_dict()
         for index, item in enumerate(column):
             column[index] = remap[item] 
         
         #--create and attach the binary numbers to a list--#
-        bins = []
+        binary_list = []
         for i in column:
-            binary = bin(i)[2:]
-            zeros = cols - len(binary)
-            str_zeros = '0' * zeros
-            binary = str_zeros + str(binary)
-            bin_list = [int(i) for i in binary]
-            bins.append(bin_list)
+            binary_value = create_binary_number(i,number_of_columns)
+            binary_list.append(binary_value)
         
-        return bins
+        return binary_list
+    
     else:
-        print('Not a valid format!')
+        print('Not a pd.Series, np.array or list')
         return None
