@@ -1,0 +1,17 @@
+unique = list(set(remap.values()))
+last = unique[-1]
+row = [0 for x in range(len(unique)-1)]
+
+row_map = {}
+tdf = pd.DataFrame(col)
+for i in unique:
+    if i == last:
+        new_row = [-1 for x in range(len(unique)-1)]
+    else:
+        new_row = row[:]
+        new_row[i] = 1
+    row_map[i] = new_row
+    
+tdf = pd.DataFrame(col)
+for i in ul:
+    tdf = pd.concat([tdf,pd.Series(row_map[i])],axis=1)
