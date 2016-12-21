@@ -3,7 +3,7 @@ def get_binary(column,column_name=None):
     number_of_columns = len(bin(unique)[2:])
     
     #--returns dict for remapping categorical values to integers--#
-    def get_remapping_dict():
+    def get_remapping_dict(column):
         unique_set = list(set(column))
         unique_numbers = [x for x in range(len(unique_set))] 
         remap_dict = dict(zip(unique_set, unique_numbers)) 
@@ -30,7 +30,7 @@ def get_binary(column,column_name=None):
             columns.append(col_name_i)
     
         #--create a dict of unique values and replace--#
-        remap = get_remapping_dict()
+        remap = get_remapping_dict(column)
         column = list(column.replace(remap))
     
         #--intialize df--#
@@ -52,7 +52,7 @@ def get_binary(column,column_name=None):
         import numpy as np
         
         #--create dict of unique values--#
-        remap = get_remapping_dict()
+        remap = get_remapping_dict(column)
         
         #--remap dict to array--#
         copy_column = np.copy(column)
@@ -71,7 +71,7 @@ def get_binary(column,column_name=None):
     elif str(type(column)) == "<class 'list'>":
         
         #--create dict of unique values--#
-        remap = get_remapping_dict()
+        remap = get_remapping_dict(column)
         for index, item in enumerate(column):
             column[index] = remap[item] 
         
