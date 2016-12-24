@@ -99,12 +99,12 @@ def get_categorical(column, encoding=None, column_name=None):
             columns.append(col_name_i)          
         
         #initialize df
-        df = pd.DataFrame()
+        df = []
         
         for i in series:
-            df = pd.concat([df,pd.Series(row_map[remap_dict[i]])],axis=1)
-        
-        df = df.T.reset_index().drop('index',axis=1).drop(0).reset_index().drop('index',axis=1)
+            df.append(row_map[remap_dict[i]])
+
+        df = pd.DataFrame(df)
         df.columns = columns
         return df
     
@@ -113,7 +113,6 @@ def get_categorical(column, encoding=None, column_name=None):
         import numpy as np
         
         #--create dict of unique values--#
-        #remap_dict = get_remapping_dict(column)
         
         #--remap dict to array--#
         copy_column = np.copy(column)
@@ -131,7 +130,6 @@ def get_categorical(column, encoding=None, column_name=None):
     elif str(type(column)) == "<class 'list'>":
         
         #--create dict of unique values--#
-        #remap = get_remapping_dict(column)
         
         for index, item in enumerate(column):
             column[index] = remap_dict[item] 
