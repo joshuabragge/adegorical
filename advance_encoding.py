@@ -1,4 +1,4 @@
-def get_contrast(column, encoding=None, column_name=None):
+def get_categorical(column, encoding=None, column_name=None):
 
     #--returns dict for remapping categorical values to integers--#
     def get_remapping_dict(column):
@@ -25,6 +25,9 @@ def get_contrast(column, encoding=None, column_name=None):
             lastrow = [-1 for x in range(len(unique)-equalizer)]
             output = 1
             comparison = None
+            
+        elif encoding == 'binary': #binary!
+            equalizer = 0
 
         elif encoding == 'sregression': #simple regression coding 
             #-- -1/k else (k-1)/k --#
@@ -50,23 +53,36 @@ def get_contrast(column, encoding=None, column_name=None):
             lastrow = baserow
             output = 1
             comparison = None
+        
+        if encoding == 'binary': 
+            number_of_columns = len(bin(len(unique))[2:])
+            for i in unique:
+                integer = i
+                binary_value = bin(integer)[2:]
+                extra_zeros = (number_of_columns - len(binary_value)) * '0'
+                binary_value = extra_zeros + str(binary_value)
+                binary_list = [int(i) for i in binary_value]
+                row_mappings_dict[i] = binary_list   
 
-        for i in unique:
-            if i == last:
-                newrow = lastrow
-            else:
-                newrow = baserow[:]
-                newrow[i] = output
-                if comparison != None:
-                    try:
-                        newrow[i-1] = comparison
-                    except:
-                        pass
-            row_mappings_dict[i] = newrow
-
-        return row_mappings_dict, equalizer
+        else:
+            for i in unique:
+                if i == last:
+                    newrow = lastrow
+                else:
+                    newrow = baserow[:]
+                    newrow[i] = output
+                    if comparison != None:
+                        try:
+                            newrow[i-1] = comparison
+                        except:
+                            pass
+                row_mappings_dict[i] = newrow
+                
+            number_of_columns = len(unique)-equalizer         
+        
+        return row_mappings_dict, equalizer, number_of_columns
     
-    row_map, equalizer = get_row_mappings_dict(unique,encoding=encoding)
+    row_map, equalizer, number_of_columns = get_row_mappings_dict(unique,encoding=encoding)
     
     series = list(column)
     
@@ -76,18 +92,57 @@ def get_contrast(column, encoding=None, column_name=None):
         
          #--create columns--#
         if column_name == None:
-            column_name = 'contrast'
+            column_name = encoding
         columns = []
-        for i in range(len(unique)-equalizer):
+        for i in range(number_of_columns):
             col_name_i = column_name + '_' + str(i)
             columns.append(col_name_i)          
         
         #initialize df
-        tdf = pd.DataFrame()
+        df = pd.DataFrame()
         
         for i in series:
-            tdf = pd.concat([tdf,pd.Series(row_map[remap_dict[i]])],axis=1)
+            df = pd.concat([df,pd.Series(row_map[remap_dict[i]])],axis=1)
         
-        tdf = tdf.T.reset_index().drop('index',axis=1).drop(0).reset_index().drop('index',axis=1)
-        tdf.columns = columns
-        return tdf
+        df = df.T.reset_index().drop('index',axis=1).drop(0).reset_index().drop('index',axis=1)
+        df.columns = columns
+        return df
+    
+    elif str(type(column)) == "<class 'numpy.ndarray'>":
+        
+        import numpy as np
+        
+        #--create dict of unique values--#
+        #remap_dict = get_remapping_dict(column)
+        
+        #--remap dict to array--#
+        copy_column = np.copy(column)
+        for k, v in remap_dict.items(): copy_column[column==k] = v
+        column = copy_column.astype(int)
+        
+        #--create and attach the new rows to a list--#
+        array_list = []
+        for i in column:
+            array_list.append(row_map[i])
+        array = np.array(array_list)
+        
+        return array
+    
+    elif str(type(column)) == "<class 'list'>":
+        
+        #--create dict of unique values--#
+        #remap = get_remapping_dict(column)
+        
+        for index, item in enumerate(column):
+            column[index] = remap_dict[item] 
+        
+        #--create and attach the new rows to a list--#
+        mapping_list = []
+        for i in column:
+            mapping_list.append(row_map[i])
+    
+        return mapping_list
+    
+    else:
+        print('Not a pd.Series, np.array or list')
+        return None
