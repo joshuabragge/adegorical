@@ -13,9 +13,10 @@ def get_categorical(column, encoding=None, column_name=None):
     row_mappings_dict = {}
     unique = set(unique)
     last = list(unique)[-1]
-
-    if encoding == 'scontrast': # simple contrast coding
-        #-- one categorical item has all -1 --#
+    
+    #http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm
+    
+    if encoding == 'simple contrast': # simple contrast coding // SC
         equalizer = 1
         baserow = [0 for x in range(len(unique)-equalizer)]
         lastrow = [-1 for x in range(len(unique)-equalizer)]
@@ -25,7 +26,7 @@ def get_categorical(column, encoding=None, column_name=None):
     elif encoding == 'binary': #binary!
         equalizer = 0
 
-    elif encoding == 'sregression': #simple regression coding 
+    elif encoding == 'simple regression': #simple regression coding  // SR
         #-- -1/k else (k-1)/k --#
         equalizer = 1
         length = len(unique)
@@ -34,14 +35,61 @@ def get_categorical(column, encoding=None, column_name=None):
         output = ((length-1)/length)
         comparison = None
 
-    elif encoding == 'fdiff': #forward difference contrast coding
+    elif encoding == 'forward difference contrast': #forward difference contrast coding // FDC
         equalizer = 1
         baserow = [0 for x in range(len(unique)-equalizer)]
         lastrow = baserow[:]
         lastrow[-1] = -1
         output = 1
         comparison = -1
-
+        
+    elif encoding == 'backward difference contrast': #backword difference contrast encoding // BDE
+        equalizer = 1
+        baserow = [0 for x in range(len(unique)-equalizer)]
+        lastrow = baserow[:]
+        lastrow[-1] = 1
+        output = -1
+        comparison = 1
+    
+    elif encoding == 'forward difference regression': # forward difference regression // FDR - roosevelt
+        print('nothing')
+    
+    elif encoding == 'backward difference regression':
+        print('nothing')
+        
+    elif encoding == 'simple helmert':
+        print('nothing')
+        
+    elif encoding == 'simple helmert regression':
+        print('nothing')
+    
+    elif encoding == 'reverse helmert':
+        print('nothing')
+    
+    elif encoding == 'reverse helmert regression':
+        print('nothing')
+    
+    elif encoding == 'polynomial':
+        print('nothing')
+    
+    elif encoding == 'regression polynomial': # same as simple contrast
+        print('nothing')
+        
+    elif encoding == 'deviation':
+        equalizer = 1
+        length = len(unique)
+        baserow = [(-1/length) for x in range(len(unique)-equalizer)]
+        lastrow = baserow[:]
+        output = ((length-1)/length)
+        comparison = None
+        
+    elif encoding == 'deviation regression': #same as simple contrast
+        equalizer = 1 
+        baserow = [0 for x in range(len(unique)-equalizer)]
+        lastrow = [-1 for x in range(len(unique)-equalizer)]
+        output = 1
+        comparison = None
+    
     else:
         #dummy encoding
         equalizer = 1
