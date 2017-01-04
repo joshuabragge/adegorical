@@ -1,20 +1,48 @@
-def get_categorical(column, encoding=None, column_name=None):
-
+def get_categorical(column, encoding=None, column_name=None, reference=None):
+    
+    '''
+    simple encoding
+    binary
+    simple regression
+    backward difference contrast
+    forward difference contrast
+    forward difference regression
+    backward difference regression
+    simple helmert
+    simple helmert regression
+    reverse helmert encoding
+    polynominal
+    regression polynomial 
+    deviation
+    deviation regression
+    
+    '''
+    
     #--returns dict for remapping categorical values to integers--#
     unique_set = list(set(column))
     unique_numbers = [x for x in range(len(unique_set))] 
     remap_dict = dict(zip(unique_set, unique_numbers)) 
-    
+
     #create list of all unique variables in dict
     unique = list(remap_dict.values())
     
-    #--create dictionary for new rows--#
+    #select reference level:
+    if reference != None:
+        last_value = len(remap_dict)-1
+        last_value_key = next((key for key,value in remap_dict.items() if value==last_value))
+        swap_value = remap_dict[last_value_key]
+        reference_value = remap_dict[reference]
+        remap_dict[reference] = swap_value
+        remap_dict[last_value_key] = reference_value
     
+    
+    #--create dictionary for new rows--#
     row_mappings_dict = {}
     unique = set(unique)
     last = list(unique)[-1]
     
     #http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm
+    #http://slideplayer.com/slide/6307838/
     
     if encoding == 'simple contrast': # simple contrast coding // SC
         equalizer = 1
