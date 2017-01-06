@@ -8,7 +8,7 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
     forward difference contrast
     forward difference regression
     backward difference regression
-    simple helmert
+    simple helmert // WIP
     simple helmert regression
     reverse helmert encoding
     polynominal
@@ -86,7 +86,13 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
         print('nothing')
         
     elif encoding == 'simple helmert':
-        print('nothing')
+        equalizer = 1
+        baserow = [0 for x in range(len(unique)-equalizer)]
+        lastrow = baserow[:]
+        lastrow[-1] = -1
+        lastrow[-2] = 1
+        output = 1
+        comparison = None
         
     elif encoding == 'simple helmert regression':
         print('nothing')
@@ -134,7 +140,30 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
             extra_zeros = (number_of_columns - len(binary_value)) * '0'
             binary_value = extra_zeros + str(binary_value)
             binary_list = [int(i) for i in binary_value]
-            row_mappings_dict[i] = binary_list   
+            row_mappings_dict[i] = binary_list
+            
+    elif encoding == 'simple helmert':
+        for i in unique:
+            print(i)
+            if i == last:
+                newrow = lastrow
+            else:
+                newrow = baserow[:] 
+                length = len(unique) - i - 2
+                try:
+                    variable = -1/length
+                except:
+                    variable = -1
+                    
+                for index,value in enumerate(newrow[i:]):
+                    newrow[index+i] = variable
+                print(newrow)    
+                newrow[i] = output
+                
+            print(newrow)
+            row_mappings_dict[i] = newrow
+
+        number_of_columns = len(unique)-equalizer 
 
     else:
         for i in unique:
@@ -145,9 +174,11 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
                 newrow[i] = output
                 if comparison != None:
                     try:
-                        newrow[i-1] = comparison
+                        if i != 0:
+                            newrow[i-1] = comparison
                     except:
                         pass
+            print(newrow)
             row_mappings_dict[i] = newrow
 
         number_of_columns = len(unique)-equalizer         
@@ -220,3 +251,24 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
     else:
         print('Not a pd.Series, np.array or list')
         return None
+    
+    '''elif encoding == 'simple helmert':
+        prevrow = baserow[:]
+        for i in unique:
+            print(i)
+            if i == last:
+                newrow = lastrow
+            else:
+                newrow = prevrow
+                
+                if i != 0:
+                    length = len(unique) - i
+                    variable = -1/length
+                    newrow[i-1] = variable
+                newrow[i] = output
+                prevrow = newrow
+            print(newrow)
+            row_mappings_dict[i] = newrow
+
+        number_of_columns = len(unique)-equalizer 
+'''
