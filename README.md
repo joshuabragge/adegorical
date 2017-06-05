@@ -50,7 +50,7 @@ binary_pandas_frame = ad.get_categorical(pandas_frame['colors'],
 | 0 | 0 | 0 |
 
 
-#### Todo
+## Todo
 1. Forward Difference Regression
 2. Backward Difference Regression
 3. Simple Helmert Regression
