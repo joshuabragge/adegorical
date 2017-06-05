@@ -15,6 +15,7 @@ This function can handle:
 7. Simple Helmert
 
 [UCLA Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm)
+
 [Harris Holly Presentation](http://slideplayer.com/slide/6307838/)
 
 ## How Do I Use This?
