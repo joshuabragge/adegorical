@@ -5,11 +5,28 @@ This function can handle:
 * Numpy column by returning an numpy array
 * Python list by returning a list of lists
 
-# How Do I Use This?
+## Methods for Advanced Encoding
+1. Binary
+2. Dummy
+3. Simple Contrast
+4. Simple Regression
+5. Forward Difference Contrast
+6. Backward Difference Contrast
+7. Simple Helmert
+
+[UCLA Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm)
+[Harris Holly Presentation](http://slideplayer.com/slide/6307838/)
+
+## How Do I Use This?
 ```python
 import adegorical as ad
 import pandas as pd
 import numpy as np
+
+encoding_types = ad.help()
+
+print(encoding_types)
+['dummy', 'binary', 'simple_contrast', 'simple_regression', 'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
 
 colors = ['yellow', 'red', 'green', 'orange', 'red', 'yellow']
 pandas_frame = pd.DataFrame({'colors':colors})
@@ -18,10 +35,9 @@ encoded_pandas_frame = ad.get_categorical(pandas_frame['colors'],
                                           encoding='binary',
                                           reference='red',
                                           column_name='binary')
-print(encoded_pandas_frame)
 ```
 
-encoded_pandas_frame returns:
+encoded_pandas_frame:
 
 | yellow_binary | orange_binary | green_binary |
 | ------------- |:-------------:| ------------:|
@@ -32,22 +48,12 @@ encoded_pandas_frame returns:
 | 0 | 1 | 1 |
 | 0 | 0 | 0 |
 
-# What Types of Encoding Can I Use?
+## Types of Advanced Encoding
 ```python
-ad.help()
+
 ```
 
-
-##Methods for Encoding
-1. Binary
-2. Dummy
-3. Simple Contrast
-4. Simple Regression
-5. Forward Difference Contrast
-6. Backward Difference Contrast
-7. Simple Helmert
-
-## Todo
+#### Todo
 1. Forward Difference Regression
 2. Backward Difference Regression
 3. Simple Helmert Regression
@@ -56,7 +62,3 @@ ad.help()
 6. Regression Polynomial
 7. Deviation
 8. Deviation Regression
-
-### Adopted From:
-[UCLA Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm)
-[Harris Holly Presentation](http://slideplayer.com/slide/6307838/)
