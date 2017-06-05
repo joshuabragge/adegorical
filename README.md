@@ -5,7 +5,7 @@ This function can handle:
 * Numpy column by returning an numpy array
 * Python list by returning a list of lists
 
-## Methods for Advanced Encoding
+## Adegorical Encoding Methods:
 1. Binary
 2. Dummy
 3. Simple Contrast
@@ -16,29 +16,29 @@ This function can handle:
 
 [UCLA Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm)
 
+
 [Harris Holly Presentation](http://slideplayer.com/slide/6307838/)
 
-## How Do I Use This?
+## Getting Started
 ```python
 import adegorical as ad
 import pandas as pd
 import numpy as np
 
 encoding_types = ad.help()
-
 print(encoding_types)
-['dummy', 'binary', 'simple_contrast', 'simple_regression', 'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
+
+['dummy', 'binary', 'simple_contrast', 'simple_regression',
+'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
 
 colors = ['yellow', 'red', 'green', 'orange', 'red', 'yellow']
 pandas_frame = pd.DataFrame({'colors':colors})
 
-encoded_pandas_frame = ad.get_categorical(pandas_frame['colors'],
+binary_pandas_frame = ad.get_categorical(pandas_frame['colors'],
                                           encoding='binary',
                                           reference='red',
                                           column_name='binary')
 ```
-
-encoded_pandas_frame:
 
 | yellow_binary | orange_binary | green_binary |
 | ------------- |:-------------:| ------------:|
@@ -49,10 +49,6 @@ encoded_pandas_frame:
 | 0 | 1 | 1 |
 | 0 | 0 | 0 |
 
-## Types of Advanced Encoding
-```python
-
-```
 
 #### Todo
 1. Forward Difference Regression
