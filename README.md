@@ -1,5 +1,6 @@
 # Adegorical
-Advanced transformations for categorical data. T
+Advanced transformations for categorical data.
+
 This function can handle:
 * Pandas series by returning a pandas dataframe
 * Numpy column by returning an numpy array
