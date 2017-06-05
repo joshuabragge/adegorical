@@ -1,14 +1,19 @@
 def help(encoding=None):
     if encoding == 'dummy':
-        print('dummy encoding')
+        print('dummy')
     elif encoding == 'binary':
-        print('binary encoding')
+        print('binary')
     elif encoding == 'simple_contrast':
-        print('simple contrast encoding')
+        print('simple_contrast')
     elif encoding == 'simple_regression':
-        print('simple regression encoding')
+        print('simple_regression')
+    elif encoding == 'forward_difference_contrast':
+          print('forward_difference_contrast')
+    elif encoding == 'backward_difference_contrast':
+            print('backward_difference_contrast')
     else:
-        encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression']
+        encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression', 'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
+        print(encoding_types)
         return encoding_types
 
 
@@ -303,6 +308,7 @@ def _simple_helmert(column, unique_remapping_integers):
 
     return row_mappings_dict, number_of_columns
 
+
 def get_categorical(column, encoding=None, column_name=None, reference=None):
 
     remap_dict = _create_remapping_dict(column=column, reference=reference)
@@ -329,103 +335,11 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
     elif encoding == 'simple_helmert':
         row_mappings_dict, number_of_columns = _simple_helmert(column, unique_remapping_integers)
 
+    else:  # dummy
+        row_mappings_dict, number_of_columns = _dummy(column, unique_remapping_integers)
 
-    '''
-    simple encoding
-    binary
-    simple regression
-    backward difference contrast
-    forward difference contrast
-    forward difference regression
-    backward difference regression
-    simple helmert // WIP
-    simple helmert regression
-    reverse helmert encoding
-    polynominal
-    regression polynomial
-    deviation
-    deviation regression
-
-    '''
-
-
-
-
-
-
-    # select reference level:
-
-
-
-    #--create dictionary for new rows--#
-    #row_mappings_dict = {}
-    #unique = set(unique)
-    #last = list(unique)[-1]
-
-    #http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm
-    #http://slideplayer.com/slide/6307838/
-
-
-    '''
-
-
-    elif encoding == 'forward difference regression': # forward difference regression // FDR - roosevelt
-        print('nothing')
-
-    elif encoding == 'backward difference regression':
-        print('nothing')
-
-    elif encoding == 'simple helmert':
-        equalizer = 1
-        baserow = [0 for x in range(len(unique)-equalizer)]
-        lastrow = baserow[:]
-        lastrow[-1] = -1
-        lastrow[-2] = 1
-        output = 1
-        comparison = None
-
-    elif encoding == 'simple helmert regression':
-        print('nothing')
-
-    elif encoding == 'reverse helmert':
-        print('nothing')
-
-    elif encoding == 'reverse helmert regression':
-        print('nothing')
-
-    elif encoding == 'polynomial':
-        print('nothing')
-
-    elif encoding == 'regression polynomial': # same as simple contrast
-        print('nothing')
-
-    elif encoding == 'deviation':
-        equalizer = 1
-        length = len(unique)
-        baserow = [(-1/length) for x in range(len(unique)-equalizer)]
-        lastrow = baserow[:]
-        output = ((length-1)/length)
-        comparison = None
-
-    elif encoding == 'deviation regression': #same as simple contrast
-        equalizer = 1
-        baserow = [0 for x in range(len(unique)-equalizer)]
-        lastrow = [-1 for x in range(len(unique)-equalizer)]
-        output = 1
-        comparison = None
-
-    else:
-        # dummy encoding
-        equalizer = 1
-        baserow = [0 for x in range(len(unique)-equalizer)]
-        lastrow = baserow
-        output = 1
-        comparison = None
-        pass
-'''
-
-
-    #row_map, equalizer, number_of_columns = get_row_mappings_dict(unique, encoding=encoding)
+    # to cleanup
+    #  row_map, equalizer, number_of_columns = get_row_mappings_dict(unique, encoding=encoding)
 
     series = list(column)
     unique = list(remap_dict.values())
@@ -447,23 +361,52 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
         print('Not a Pandas.Series, Numpy.array or Python.list')
         return None
 
-    '''elif encoding == 'simple helmert':
-        prevrow = baserow[:]
-        for i in unique:
-            print(i)
-            if i == last:
-                newrow = lastrow
-            else:
-                newrow = prevrow
 
-                if i != 0:
-                    length = len(unique) - i
-                    variable = -1/length
-                    newrow[i-1] = variable
-                newrow[i] = output
-                prevrow = newrow
-            print(newrow)
-            row_mappings_dict[i] = newrow
-
-        number_of_columns = len(unique)-equalizer
 '''
+      to cleanup
+      elif encoding == 'forward difference regression': # forward difference regression // FDR - roosevelt
+          print('nothing')
+
+      elif encoding == 'backward difference regression':
+          print('nothing')
+
+
+      elif encoding == 'simple helmert regression':
+          print('nothing')
+
+      elif encoding == 'reverse helmert':
+          print('nothing')
+
+      elif encoding == 'reverse helmert regression':
+          print('nothing')
+
+      elif encoding == 'polynomial':
+          print('nothing')
+
+      elif encoding == 'regression polynomial': # same as simple contrast
+          print('nothing')
+
+      elif encoding == 'deviation':
+          equalizer = 1
+          length = len(unique)
+          baserow = [(-1/length) for x in range(len(unique)-equalizer)]
+          lastrow = baserow[:]
+          output = ((length-1)/length)
+          comparison = None
+
+      elif encoding == 'deviation regression': #same as simple contrast
+          equalizer = 1
+          baserow = [0 for x in range(len(unique)-equalizer)]
+          lastrow = [-1 for x in range(len(unique)-equalizer)]
+          output = 1
+          comparison = None
+
+      else:
+          # dummy encoding
+          equalizer = 1
+          baserow = [0 for x in range(len(unique)-equalizer)]
+          lastrow = baserow
+          output = 1
+          comparison = None
+          pass
+  '''
