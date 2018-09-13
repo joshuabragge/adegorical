@@ -1,5 +1,5 @@
 # Adegorical
-Adegorical is a python package for performing advanced transformations on categorical data. 
+Adegorical is a python package for performing advanced transformations on [categorical data](https://en.wikipedia.org/wiki/Categorical_variable). 
 
 This function can handle:
 * Pandas series by returning a pandas dataframe
