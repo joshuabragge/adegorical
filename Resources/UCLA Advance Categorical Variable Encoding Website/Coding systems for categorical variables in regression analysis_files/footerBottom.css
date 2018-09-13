@@ -1,0 +1,171 @@
+#footerBottom {
+	/* gradient */
+	font-family: "Arial Narrow", Arial;
+	color:#FFF;
+	background:url(../images/footerBgBtm.png);
+	background-repeat:repeat-x;
+	width:100%;
+	font-size:1em;
+	position: relative;
+	height:66px;
+}
+
+#pageFooterBoxBtm {
+	width:960px;
+	margin: 0 auto;
+	background:url(../images/footerBG.png);
+	background-repeat:repeat-x;
+}
+#footerBottom .view-content A, .projectDetail a {
+	color:#FFF;
+text-decoration:none;
+}
+#footerBottom .view-content a:visited, .projectDetail a:visited {
+	color:#FFF;
+	text-decoration:none;
+}
+#footerBottom .view-content a:hover, .projectDetail a:hover{
+	color:#EEDBD7;
+	text-decoration:none;
+}
+#footerBottom .view-content a:active, .projectDetail a:active {
+	color:#FFF;
+	text-decoration:none;
+}
+#footerBottom .view-content a:focus, .projectDetail a:focus{
+	color:#FFF;
+	text-decoration:none;
+}
+/* FOOTER MENUS */
+
+/* END FOOTER PROJECT DETAILS */
+
+#bottomFooter {
+	width:960px;
+	font-family:'Century Gothic', arial;
+	clear:left;
+}
+#uclaSprite p {
+	text-indent: -9999em;
+}
+#uclaSprite {
+	width: 89px;
+	height: 55px;
+	float:left;
+	margin:-20px 0 0 20px;
+}
+#uclaSprite a {
+	width: 89px;
+	height: 55px;
+	float:left;
+	background-image:url(../images/UCLA_Box_Drop.png);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+#footerMenu {
+	font-size:1.1em;
+	margin-left:30px;
+	height:37px;
+	position:relative;
+	top:-10px;
+}
+.footerMenu_List {
+	padding: 0 0 0 65px;
+}
+
+.footerMenu_List ul {
+height:20px;
+display:block;
+}
+
+.footerMenu_List li {
+	list-style-type:none;
+	text-transform:uppercase;
+	display: inline;
+	color: #FFFFFF;
+	padding:1px 0 0 10px;
+	margin:0;
+	font-family:'Century Gothic', arial;
+	font-size:.75em;
+}
+.footerMenu_List li a:link {
+	color:#FFF;
+	text-decoration:none;
+}
+.footerMenu_List li a:visited {
+	color:#FFF;
+	text-decoration:none;
+}
+.footerMenu_List li a:hover {
+	color: #EEDBD7;
+	text-decoration:none;
+}
+.footerMenu_List li a:focus {
+	font-size:1em;
+	color: #EEDBD7;
+	text-decoration:none;
+}
+.footerMenu_List li a:active {
+	color:#FFF;
+	text-decoration:none;
+}
+#footerCopyright {
+	clear:left;
+	color:#FFF;
+	font-size:.8em;
+	margin:19px 0 0 10px;
+}
+#oitSprite p {
+	text-indent: -9999em;
+}
+#oitSprite {
+	width: 105px;
+	height: 60px;
+	float:right;
+	position:relative;
+	top:-18px;
+	right:15px;
+}
+#oitSprite a {
+	display: block;
+	width: 105px;
+	height: 80px;
+	float:right;
+	background-image:url(../images/FooterOIT.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	z-index:255px;
+}
+.footerTOS_List ul, .footerTOS_List li {
+	list-style-type:none;
+	display: inline;
+	color: #FFFFFF;
+	position:relative;
+	top:-4px;
+	left:-40px;
+	font-family:"Century Gothic", Arial;
+}
+.footerTOS_List li {
+	font-size:.6em;
+	padding:0 1em 0 0;
+}
+.footerTOS_List a:link, #footerProjects li a:link {
+	color:#FFF;
+	text-decoration:none;
+}
+.footerTOS_List a:visited, #footerProjects li a:visited {
+	color:#FFF;
+	text-decoration:none;
+}
+.footerTOS_List li a:hover, #footerProjects li a:hover {
+	color: #EEDBD7;
+	text-decoration:none;
+}
+.footerTOS_List li a:focus, #footerProjects li a:focus {
+	color: #EEDBD7;
+	text-decoration:none;
+}
+.footerTOS_List li a:active, #footerProjects li a:active {
+	color:#FFF;
+	text-decoration:none;
+}

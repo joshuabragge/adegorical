@@ -1,0 +1,2140 @@
+<html class="wf-centurygothic-n4-inactive wf-oswald-n4-inactive wf-newscycle-n4-inactive wf-inactive"><script async="" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/analytics.js"></script><script type="text/javascript" async="" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/cse.js"></script><script src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/webfont.js" type="text/javascript" async=""></script><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Coding systems for categorical variables in regression analysis </title>
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/ats_style.css" type="text/css" rel="stylesheet"><link rel="stylesheet" href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/css.htm" media="all">
+
+<script src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/jsapi" type="text/javascript"></script><link type="text/css" href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/defaulten.css" rel="stylesheet"><link type="text/css" href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/default.css" rel="stylesheet"><script type="text/javascript" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/defaulten.js"></script></head>
+
+<body>
+
+
+
+<!--
+ 
+Revision history:
+
+
+
+-->
+
+
+
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/body2.css" rel="stylesheet" type="text/css">
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/header2.css" rel="stylesheet" type="text/css">
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/breadcrumb.css" rel="stylesheet" type="text/css">
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/footerTop.css" rel="stylesheet" type="text/css">
+<link href="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/footerBottom.css" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+<meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<!-- <meta http-equiv="refresh" content="5" /> -->
+<meta http-equiv="refresh" content="1;url=http://stats.idre.ucla.edu/">
+
+
+<script type="text/javascript" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/webfont_002.js"></script>
+
+
+
+
+<!-- tag opened in header.htm, closed in footer.htm -->
+<div id="bodyWrap">
+<div id="header">
+  
+  <h1 font-weight:="" bold="">NOTICE: You are viewing an outdated version of this page. The new content may be found on our new domain @ <a href="http://stats.idre.ucla.edu/">http://stats.idre.ucla.edu/</a>. You may also clear your browser cache and refresh this page, which should redirect you directly to the updated content.</h1>
+
+  <div id="logo">
+    <h1 class="page_h1" title="Welcome to Institute for Digital Research and Education">Welcome to the Institute for Digital Research and Education</h1>
+    <a class="logoSprite" title="Institute for Digital Research and Education Home" href="https://idre.ucla.edu/">Institute for Digital Research and Education Home</a> </div>
+
+<div id="searchBox">
+    <div class="btnContainer">
+        <span class="btnLabel">Help the Stat Consulting Group by</span> <a href="https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=371" class="idreBtn">giving a gift</a>
+    </div>
+    <!-- Google Provided Code Starts Here -->
+<script type="text/javascript">
+  (function() {
+    var cx = '017078209654322335373:o5ngkv1vghw';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<!-- Place this tag where you want the search box to render -->
+<gcse:searchbox-only></gcse:searchbox-only>
+<!-- Google Provided Code Ends Here -->
+</div>
+
+</div>
+
+<script type="text/javascript" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/tree.js"></script>
+<script>
+function stuff(dir) {
+
+  var x = document.getElementById("bc" + dir);
+
+  if ( !x.stuffed){
+
+    var inner = "<ul>";
+
+    var listing = tree[dir];
+
+    for(var d in listing) {
+        var subdir = listing[d];
+        var base = subdir.replace("^.*\/", "");
+      inner = inner + "<li><a href='" + subdir +"'><span>" + base + "</span></a></li>";
+    }
+
+
+
+
+
+    inner = inner + "</ul>";
+
+    x.innerHTML = x.innerHTML + inner;
+    x.stuffed = true;
+  }
+
+
+}
+</script>
+
+<style>
+#cssmenu ul,
+#cssmenu li,
+#cssmenu span,
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#cssmenu {
+/*  height: 49px;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  background: #fefefe;
+  background: -moz-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #eee9f0));
+  background: -webkit-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+  background: -o-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+  background: -ms-linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+  background: linear-gradient(top, #fefefe 0%, #eee9f0 100%);
+  border-bottom: 2px solid #db000b;
+  width: auto; */
+}
+#cssmenu:after,
+#cssmenu ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#cssmenu a {
+/*  background: #fefefe;
+  background: -moz-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #ececec));
+  background: -webkit-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -o-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: -ms-linear-gradient(top, #fefefe 0%, #ececec 100%);
+  background: linear-gradient(top, #fefefe 0%, #ececec 100%);
+  color: #000; 
+  display: inline-block;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-size: 12px;
+  line-height: 49px;*/
+  padding: 0 20px;
+  text-decoration: none;
+}
+#cssmenu ul {
+  list-style: none;
+}
+#cssmenu > ul {
+  float: left;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu > ul > li > a {
+  color: #000;
+  font-size: 12px;
+}
+#cssmenu > ul > li:hover:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #db000b;
+  margin-left: -10px;
+}
+#cssmenu > ul > li:first-child > a {
+  border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+}
+#cssmenu > ul > li.active:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #db000b;
+  margin-left: -10px;
+}
+#cssmenu > ul > li.active > a {
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  background: #ececec;
+  background: -moz-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ececec), color-stop(100%, #ffeeff ef));
+  background: -webkit-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -o-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -ms-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+}
+#cssmenu > ul > li:hover > a {
+/*  background: #ececec;
+  background: -moz-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ececec), color-stop(100%, #ffeeff ef));
+  background: -webkit-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -o-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: -ms-linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  background: linear-gradient(top, #ececec 0%, #ffeeff ef 100%);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);*/
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+#cssmenu .has-sub {
+  z-index: 1;
+}
+#cssmenu .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub ul {
+  display: none;
+  position: absolute;
+  width: 200px;
+/*  top: 100%;*/
+  left: 0;
+}
+#cssmenu .has-sub ul li {
+  *margin-bottom: -1px;
+}
+#cssmenu .has-sub ul li a {
+  background: #db000b;
+  border-bottom: 1px dotted #ff0f1b;
+  filter: none;
+  font-size: 11px;
+  display: block;
+  line-height: 120%;
+  padding: 10px;
+  color: #ffffff;
+}
+#cssmenu .has-sub ul li:hover a {
+  background: #a80008;
+}
+#cssmenu .has-sub .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub .has-sub ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+#cssmenu .has-sub .has-sub ul li a {
+  background: #a80008;
+  border-bottom: 1px dotted #ff0f1b;
+}
+#cssmenu .has-sub .has-sub ul li a:hover {
+  background: #8f0007;
+}
+
+
+</style>
+
+
+
+<div id="infobar">
+
+      <div id="breadcrumbBox"><div class="breadcrumb" id="cssmenu">
+<ul>      
+<li id="bc/stat" onmouseover="stuff('/stat')" class="has-sub"><a href="http://statistics.ats.ucla.edu/stat">stat</a> &gt; </li><li id="bc/stat/sas" onmouseover="stuff('/stat/sas')" class="has-sub"><a href="http://statistics.ats.ucla.edu/stat/sas">sas</a> &gt; </li><li id="bc/stat/sas/webbooks" onmouseover="stuff('/stat/sas/webbooks')" class="has-sub"><a href="http://statistics.ats.ucla.edu/stat/sas/webbooks">webbooks</a> &gt; </li><li id="bc/stat/sas/webbooks/reg" onmouseover="stuff('/stat/sas/webbooks/reg')" class="has-sub"><a href="http://statistics.ats.ucla.edu/stat/sas/webbooks/reg">reg</a> &gt; </li><li id="bc/stat/sas/webbooks/reg/chapter5" onmouseover="stuff('/stat/sas/webbooks/reg/chapter5')" class="has-sub"><a href="http://statistics.ats.ucla.edu/stat/sas/webbooks/reg/chapter5">chapter5</a></li> &gt; sasreg5.htm
+</ul>
+</div></div></div>
+
+
+<script>
+	//var timer = setTimeout(function() { window.location='http://stats.idre.ucla.edu/'}, 3000);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-12327299-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- MathJax Provided Code Starts Here -->
+<script type="text/javascript" src="Coding%20systems%20for%20categorical%20variables%20in%20regression%20analysis_files/MathJax.xml">
+</script>
+<!-- MathJax Provided Code Ends Here -->
+
+<!-- tag opened in header.htm, closed in footer.htm -->
+<!--
+<div id="bodyContainer">
+
+
+
+
+
+
+
+
+
+<h3>
+Regression with SAS<br>
+Chapter 5: Additional coding systems for categorical variables in regression
+analysis&nbsp; </h3>
+
+
+<p>
+<b>Chapter Outline<br>
+</b>
+&nbsp;&nbsp;&nbsp; 5.1 Simple Coding<br>
+&nbsp;&nbsp;&nbsp; 5.2 Forward Difference Coding<br>
+&nbsp;&nbsp;&nbsp; 5.3 Backward Difference Coding<br>
+&nbsp;&nbsp;&nbsp; 5.4 Helmert Coding<br>
+&nbsp;&nbsp;&nbsp; 5.5 Reverse Helmert Coding<br>
+&nbsp;&nbsp;&nbsp; 5.6 Deviation Coding<br>
+&nbsp;&nbsp;&nbsp; 5.7 Orthogonal Polynomial Coding<br>
+&nbsp;&nbsp;&nbsp; 5.8 User-Defined Coding<br>
+&nbsp;&nbsp;&nbsp; 5.9 Summary
+</p>
+
+
+<p>
+Categorical variables require special attention in regression analysis because,
+unlike dichotomous or continuous variables, they cannot by entered into the
+regression equation just as they are.&nbsp;&nbsp;For example, if you have a
+variable called <b>race</b> that is coded 1 = Hispanic, 2 = Asian 3 = Black 4 =
+White,
+then entering <b>race</b> in your regression will look at the linear
+effect of race, which is probably not what you intended. Instead, categorical variables like this need to be
+recoded into a series of variables which can then be
+entered into the regression model.&nbsp; There are a variety of coding systems that can be used when
+coding categorical
+variables.&nbsp; Ideally, you would choose a
+coding system that reflects the comparisons that you want to make.&nbsp; In <a href="../chapter3/sasreg3.htm">Chapter
+3</a> of the <a href="../default.htm">Regression with SAS Web Book</a>
+we covered the use of categorical variables in regression analysis focusing on
+the use of dummy variables, but that is not the only coding scheme that you can
+use.&nbsp; For example,
+you may want to compare each level to the next higher
+level, in which case you would want to use &quot;forward difference&quot; coding, or you
+might want to compare each level to the mean of the subsequent levels of the
+variable, in which case you would want to use &quot;Helmert&quot; coding.&nbsp; By
+deliberately choosing a coding system, you can obtain comparisons that are most
+meaningful for testing your hypotheses.&nbsp; Regardless of the coding system you choose, the
+test of the overall effect
+of the categorical variable (i.e., the overall effect of <b>race</b>) will remain the same.&nbsp;
+Below is a table listing various types of contrasts and the
+comparison that they make.&nbsp;&nbsp;<br>&nbsp;
+<table border="1" width="100%">
+  <tr>
+    <td width="27%"><b>Name of contrast</b></td>
+    <td width="73%"><b>Comparison made</b></td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#SIMPLE">Simple Coding</a></td>
+    <td width="73%">Compares each level of a variable to the reference level</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#forward">Forward Difference Coding</a></td>
+    <td width="73%">Adjacent levels of a variable (each level minus the next
+      level)</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#backward">Backward Difference Coding</a></td>
+    <td width="73%">Adjacent levels of a variable (each level minus the prior
+      level)</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#HELMERT">Helmert Coding</a></td>
+    <td width="73%">Compare levels of a variable with the mean of the subsequent
+      levels of the variable</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#reverse">Reverse Helmert Coding</a></td>
+    <td width="73%">Compares levels of a variable with the mean of the previous
+      levels of the variable</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#DEVIATION">Deviation Coding</a></td>
+    <td width="73%">Compares deviations from the grand mean</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#ORTHOGONAL">Orthogonal Polynomial
+      Coding</a></td>
+    <td width="73%">Orthogonal polynomial contrasts</td>
+  </tr>
+  <tr>
+    <td width="27%"><a href="#User">User-Defined Coding</a></td>
+    <td width="73%">User-defined contrast</td>
+  </tr>
+</table>
+
+<p>There are a couple of notes to be made about the coding systems listed
+above.&nbsp; The first is that they represent planned comparisons and not post
+hoc comparisons.&nbsp; In other words, they are comparisons that you plan to do
+before you begin analyzing your data, not comparisons that you think of once you have seen
+the results of preliminary analyses.&nbsp; Also, some forms of coding
+make more sense with ordinal categorical variables than with nominal categorical
+variables.&nbsp;Below we will show examples using <b>race</b> as a categorical
+variable, which is a nominal variable.&nbsp; Because simple effect coding compares the mean of the
+dependent variable for each level of the categorical variable to the mean of the
+dependent variable at for the reference level, it makes sense with a nominal
+variable.&nbsp;
+However, it may not make as much sense to use a coding scheme that tests the linear
+effect of <b>race</b>.&nbsp; As we describe each type of coding system, we note
+those coding systems with which it does not make as much sense to use a nominal
+variable.&nbsp;&nbsp;Also, you may notice that we follow several rules when
+creating the contrast coding schemes.&nbsp; For more information about these
+rules, please see the section on <a href="#User">User-Defined Coding</a>.<p>This page will illustrate
+two ways that you can conduct analyses using
+these coding schemes: 1) using <b>proc glm</b> with <b>estimate</b> statements to
+define &quot;contrast&quot; coefficients that specify levels of the categorical
+variable that are to be
+compared<b>, </b>and 2) using <b>proc</b> <b>reg</b>.
+When using <b>proc reg</b> to do contrasts, you first need to create k-1 new variables (where k is the number of
+levels of the categorical variable) and use
+these new variables as predictors in your regression model.&nbsp; Method 1 uses a
+type of coding we will call &quot;contrast coding&quot; while method 2 uses a type of coding
+we will call &quot;regression coding&quot;.&nbsp;&nbsp;<p><b>The
+Example Data File</b></p>
+<p>The examples in this page will use dataset called <a href="../hsb2.sas7bdat">hsb2.sas7bdat</a>
+and we will focus on the categorical variable <b>race</b>, which has four levels (1 =
+Hispanic, 2 = Asian, 3 = African American and 4 = white) and we will use <b>write</b>
+as our dependent variable.&nbsp; Although our
+example uses a variable with four levels, these coding systems work with
+variables that have more or fewer categories.&nbsp;No matter which coding system you select, you will always have one fewer recoded variables
+than levels of the original variable.&nbsp; In our example, our categorical
+variable has four levels so we will have three new variables&nbsp;(a variable corresponding to the final level of the categorical
+variables would be redundant and therefore unnecessary).
+<p>Before considering any analyses, let's look at the mean of the dependent
+variable, <b>write</b>, for each level of <b>race</b>.&nbsp; This will help in interpreting
+the output from later analyses.</p>
+<blockquote>
+<pre><b>proc means data = c:\sasreg\hsb2 mean n;
+  class race;
+  var write;
+run;</b></pre>
+</blockquote>
+<pre>The MEANS Procedure
+
+  Analysis Variable : write writing score
+
+                  N
+        race    Obs            Mean      N
+------------------------------------------
+           1     24      46.4583333     24
+
+           2     11      58.0000000     11
+
+           3     20      48.2000000     20
+
+           4    145      54.0551724    145
+------------------------------------------</pre>
+
+<p><a name="SIMPLE"><b>5.1 Simple Coding</b></a></p>
+<p>The results of simple coding are very similar to dummy coding in that
+each level is compared to the reference level. In the example below, level 4 is
+the reference level and the first comparison compares level 1 to level 4, the
+second comparison compares level 2 to level 4, and the third comparison compares
+level 3 to level 4.&nbsp;
+
+<p><b>Method 1: PROC GLM</b></p>
+
+<p>The table below shows the simple coding making the comparisons
+described above.&nbsp; The first contrast
+compares level 1 to level 4, and level 1 is coded as 1 and level 4 is
+coded as -1.&nbsp; Likewise, the second contrast compares level 2 to
+level 4 by coding level 2 as 1 and level 4 as -1.&nbsp; As you
+can see with contrast coding, you can discern the meaning of the comparisons
+simply by inspecting the contrast coefficients.&nbsp; For example, looking at
+the contrast coefficients for c3, you can see that it compares level 3
+to level 4.
+
+<p>
+SIMPLE contrast coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (c1)</td>
+    <td width="25%" align="center">New variable 2 (c2)</td>
+    <td width="25%" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">1</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">-1</td>
+    <td width="25%" align="center">-1</td>
+    <td width="25%" align="center">-1</td>
+  </tr>
+</table>
+
+<p>Below we illustrate how to form these comparisons using <b>proc glm</b>.&nbsp; As you see, a separate
+<b>estimate</b> statement is used for each contrast.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus level 4' race 1 0 0 -1;
+  estimate 'level 2 versus level 4' race 0 1 0 -1;
+  estimate 'level 3 versus level 4' race 0 0 1 -1;
+run;
+quit;</b></pre>
+</blockquote>
+<p> The
+contrast estimate for the first contrast compares the mean of the dependent
+variable, <b>write</b>, for levels 1 and 4 yielding <FONT COLOR="#000000">-7.597 and
+is statistically significant (p&lt;.000). The t-value associated with this test
+is -3.82.&nbsp; The results of the second
+contrast, comparing the mean of <b>write</b> for levels 2 and 4 is not
+statistically significant (t = 1.40, p = .1638), while the third contrast is
+statistically significant.&nbsp; Please note that while we have included the
+full SAS output for this example, we will only show the relevant output in later
+examples to conserve space.</FONT></p>
+
+<pre>The GLM Procedure
+
+Dependent Variable: write   writing score
+
+                                        Sum of
+Source                      DF         Squares     Mean Square    F Value    Pr &gt; F
+
+Model                        3      1914.15805       638.05268       7.83    &lt;.0001
+
+Error                      196     15964.71695        81.45264
+
+Corrected Total            199     17878.87500
+
+R-Square     Coeff Var      Root MSE    write Mean
+
+0.107063      17.10111      9.025111      52.77500
+
+Source                      DF       Type I SS     Mean Square    F Value    Pr &gt; F
+
+race                         3     1914.158046      638.052682       7.83    &lt;.0001
+
+Source                      DF     Type III SS     Mean Square    F Value    Pr &gt; F
+
+race                         3     1914.158046      638.052682       7.83    &lt;.0001
+
+                                              Standard
+Parameter                     Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus level 4     -7.59683908      1.98886958      -3.82      0.0002
+level 2 versus level 4      3.94482759      2.82250377       1.40      0.1638
+level 3 versus level 4     -5.85517241      2.15275967      -2.72      0.0071</pre>
+<p><b>Method 2: Regression</b></p>
+<p>The regression coding is a bit more complex
+than contrast coding.&nbsp; In our example below, level 4 is the reference level
+and <b> x1</b> compares level 1 to level 4, <b> x2</b> compares level 2 to level 4, and
+<b> x3</b> compares
+level 3 to level 4.&nbsp; For <b> x1</b> the coding is
+3/4 for level 1, and -1/4 for all other levels.&nbsp; Likewise, for
+<b>
+x2</b> the coding is 3/4 for level 2, and -1/4 for all other levels, and for
+<b>
+x3</b> the coding is 3/4 for level 3, and -1/4
+for all other levels.&nbsp;&nbsp;It is not intuitive that this regression coding
+scheme yields these comparisons; however, if you desire simple comparisons, you
+can follow this general rule to obtain these comparisons.
+<p>
+SIMPLE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">3/4</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">3/4</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">3/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">-1/4</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+</table>
+
+<p>Below we show the more general rule for creating this kind of coding scheme
+using regression coding, where k is the number of levels of the categorical
+variable (in this instance, k = 4).</p>
+
+<p>
+SIMPLE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">(k-1) / k</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">-1 / k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">(k-1) / k</td>
+    <td width="25%" align="center">-1 / k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">(k-1) / k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">-1 / k</td>
+    <td width="25%" align="center">-1 / k</td>
+  </tr>
+</table>
+
+<p>Below we illustrate how to create <b>x1</b>, <b>x2</b> and <b>x3</b> and enter
+these new variables into the regression model using <b>proc</b> <b>reg</b>.</p>
+
+<blockquote>
+
+<pre><b>data simple;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = 3/4; else x1 = -1/4;
+  if race = 2 then x2 = 3/4; else x2 = -1/4;
+  if race = 3 then x3 = 3/4; else x3 = -1/4;
+run;
+
+proc reg data = simple;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+
+</blockquote>
+
+<p>
+You will notice that the regression coefficients in the table below are the same
+as the contrast coefficients that we saw using <b>proc glm</b>.&nbsp; Both the regression coefficient for
+<b> x1</b> and the contrast estimate for
+c1 are the mean of <b> write</b> for level 1 of <b>race</b> (Hispanic) minus the mean of
+<b> write</b>
+for level 4 (white). Likewise, the
+regression coefficient for <b> x2</b> and the contrast estimate for c2 are the mean of <b> write</b> for level 2 (Asian) minus the mean of
+<b> write</b>
+for level 4 (white). You also can see that the t values and significance levels are also the same as those from the <b>proc glm </b>output.&nbsp;
+<FONT COLOR="#000000">Please note that while we have included the full SAS
+output for this example, we will only show the relevant output in later examples
+to conserve space.</FONT></p>
+
+<pre>The REG Procedure
+Model: MODEL1
+Dependent Variable: write writing score
+
+                             Analysis of Variance
+
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr &gt; F
+
+Model                     3     1914.15805      638.05268       7.83    &lt;.0001
+Error                   196          15965       81.45264
+Corrected Total         199          17879
+
+Root MSE              9.02511    R-Square     0.1071
+Dependent Mean       52.77500    Adj R-Sq     0.0934
+Coeff Var            17.10111
+
+                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1       -7.59684        1.98887      -3.82      0.0002
+x2                             1        3.94483        2.82250       1.40      0.1638
+x3                             1       -5.85517        2.15276      -2.72      0.0071</pre>
+
+<p><a name="forward"><b>5.2 Forward Difference Coding</b></a></p>
+<p>In this coding system, the mean of the dependent variable for one level
+of the categorical variable is compared to the mean of the dependent variable
+for the next (adjacent) level.&nbsp; In our example below, the first comparison
+compares the mean of <b> write</b> for level 1 with the mean of <b> write </b> for level 2 of
+<b>
+race</b> (Hispanics minus Asians).&nbsp; The second comparison compares the mean of
+<b>
+write</b> for level 2 minus level 3, and the third comparison compares the mean of
+<b>
+write</b> for level 3 minus level 4.&nbsp; This type of
+coding may be useful with either a nominal or an ordinal
+variable.&nbsp;&nbsp;&nbsp;</p>
+<p><font size="3"><b>Method 1: PROC GLM</b></font></p>
+<p>FORWARD DIFFERENCE contrast coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (c1)</td>
+    <td width="25%" align="center">New variable 2 (c2)</td>
+    <td width="25%" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Level 2</td>
+    <td width="25%" align="center">Level 2 v. Level 3</td>
+    <td width="25%" align="center">Level 3 v. Level 4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;1</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-1</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">-1</td>
+    <td width="25%" align="center">1</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">-1</td>
+  </tr>
+</table>
+<blockquote>
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus level 2' race 1 -1 0 0;
+  estimate 'level 2 versus level 3' race 0 1 -1 0;
+  estimate 'level 3 versus level 4' race 0 0 1 -1;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                              Standard
+Parameter                     Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus level 2     -11.5416667      3.28612920      -3.51      0.0006
+level 2 versus level 3       9.8000000      3.38783369       2.89      0.0043
+level 3 versus level 4      -5.8551724      2.15275967      -2.72      0.0071</pre>
+<p>With this coding system, adjacent levels of the categorical variable are
+compared.&nbsp; Hence, the mean of the dependent variable at level 1 is compared
+to the mean of the dependent variable at level 2:&nbsp; 46.4583 - 58 = -11.542,
+which is statistically significant.&nbsp; For the comparison between levels 2
+and 3, the calculation of the contrast coefficient would be 58 - 48.2 = 9.8,
+which is also statistically significant.&nbsp; Finally, comparing levels 3 and
+4, 48.2 - 54.0552 = -5.855, a statistically significant difference.&nbsp; One
+would conclude from this that each adjacent level of <b> race</b> is statistically
+significantly different.</p>
+<p><b>Method 2: Regression</b></p>
+<p> For the first
+comparison, where the first and second levels are compared, <b> x1</b> is coded
+3/4 for level 1 and the other levels are coded -1/4.&nbsp; For the second comparison where level
+2 is compared with level 3, <b> x2</b> is coded 1/2 1/2 -1/2 -1/2, and for the
+third comparison where<b> </b>level 3 is compared with level 4, <b> x3</b> is
+coded 1/4 1/4 1/4 -3/4.&nbsp;&nbsp;
+<p> 
+FORWARD DIFFERENCE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Level 2</td>
+    <td width="25%" align="center">Level 2 v. Level 3</td>
+    <td width="25%" align="center">Level 3 v. Level 4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;3/4</td>
+    <td width="25%" align="center">1/2</td>
+    <td width="25%" align="center">1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">1/2</td>
+    <td width="25%" align="center">1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-3/4</td>
+  </tr>
+</table>
+<p>The general rule for this regression coding scheme is shown below, where k is
+the number of levels of the categorical variable (in this case k = 4).
+<p>FORWARD DIFFERENCE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Level 2</td>
+    <td width="25%" align="center">Level 2 v. Level 3</td>
+    <td width="25%" align="center">Level 3 v. Level 4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;(k-1)/k</td>
+    <td width="25%" align="center">(k-2)/k</td>
+    <td width="25%" align="center">(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-1/k</td>
+    <td width="25%" align="center">(k-2)/k</td>
+    <td width="25%" align="center">(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;-1/k</td>
+    <td width="25%" align="center">-2/k</td>
+    <td width="25%" align="center">(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;-1/k</td>
+    <td width="25%" align="center">-2/k</td>
+    <td width="25%" align="center">-3/k</td>
+  </tr>
+</table>
+<blockquote>
+<pre><b>data forward;
+  set c:\sasreg\hsb2;
+
+  if race = 1 then x1 = 3/4; else x1 = -1/4;
+
+  if race = 1 or race = 2 then x2 = 1/2;
+  if race = 3 or race = 4 then x2 = -1/2;
+
+  if race = 4 then x3 = -3/4; else x3 = 1/4;
+
+run;
+
+proc reg data = forward;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1      -11.54167        3.28613      -3.51      0.0006
+x2                             1        9.80000        3.38783       2.89      0.0043
+x3                             1       -5.85517        2.15276      -2.72      0.0071</pre>
+<p>
+You can see the regression coefficient for <b> x1</b>  is the mean of <b> write</b> for level 1 (Hispanic) minus the mean of <b> write</b>
+for level 2 (Asian).&nbsp; Likewise, the
+regression coefficient for <b> x2</b> is the mean of <b> write</b> for level 2 (Asian) minus the mean of <b> write</b>
+for level 3 (African American), and the
+regression coefficient for <b> x3</b>  is the mean of <b> write</b> for level 3 (African American) minus the mean
+of <b> write</b> for level 4 (white).</p>
+<p><a name="backward"><b>5.3 Backward Difference Coding</b></a></p>
+<p>In this coding system, the mean of the dependent variable for one level
+of the categorical variable is compared to the mean of the dependent variable
+for the prior adjacent level.&nbsp; In our example below, the first comparison
+compares the mean of <b> write</b> for level 2 with the mean of <b> write </b> for level
+1 of
+<b>
+race</b> (Hispanics minus Asians).&nbsp; The second comparison compares the mean of
+<b>
+write</b> for level 3 minus level 2, and the third comparison compares the mean of
+<b>
+write</b> for level 4 minus level 3.&nbsp; This type of
+coding may be useful with either a nominal or an ordinal
+variable.&nbsp;&nbsp;&nbsp;</p>
+<p><font size="3"><b>Method 1: PROC GLM</b></font></p>
+<p>BACKWARD DIFFERENCE contrast coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (c1)</td>
+    <td width="25%" align="center">New variable 2 (c2)</td>
+    <td width="25%" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Level 2</td>
+    <td width="25%" align="center">Level 2 v. Level 3</td>
+    <td width="25%" align="center">Level 3 v. Level 4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;-1</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;1</td>
+    <td width="25%" align="center">-1</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">-1</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">1</td>
+  </tr>
+</table>
+<blockquote>
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus level 2' race -1 1 0 0;
+  estimate 'level 2 versus level 3' race 0 -1 1 0;
+  estimate 'level 3 versus level 4' race 0 0 -1 1;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                              Standard
+Parameter                     Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus level 2      11.5416667      3.28612920       3.51      0.0006
+level 2 versus level 3      -9.8000000      3.38783369      -2.89      0.0043
+level 3 versus level 4       5.8551724      2.15275967       2.72      0.0071</pre>
+<p>With this coding system, adjacent levels of the categorical variable are
+compared, with each level compared to the prior level.&nbsp; Hence, the mean of the dependent variable at level
+2 is compared
+to the mean of the dependent variable at level 1:&nbsp; 58 - 46.4583 = 11.542,
+which is statistically significant.&nbsp; For the comparison between levels 3
+and 2, the calculation of the contrast coefficient is 48.2 - 58 = -9.8,
+which is also statistically significant.&nbsp; Finally, comparing levels 4 and
+3, 54.0552 - 48.2 = 5.855, a statistically significant difference.&nbsp; One
+would conclude from this that each adjacent level of <b> race</b> is statistically
+significantly different.</p>
+
+<p><b>Method 2: Regression</b></p>
+<p> For the first
+comparison, where the first and second levels are compared, <b> x1</b> is coded 3/4
+for level 1 while the other levels are coded -1/4.&nbsp; For the second comparison where level
+2 is compared with level 3, <b> x2</b> is coded 1/2 1/2 -1/2 -1/2, and for the
+third comparison where<b> </b>level 3 is compared with level 4, <b> x3</b> is
+coded 1/4 1/4 1/4 -3/4.&nbsp;
+<p>BACKWARD DIFFERENCE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 2 v. Level 1</td>
+    <td width="25%" align="center">Level 3 v. Level 2</td>
+    <td width="25%" align="center">Level 4 v. Level 3</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">-&nbsp;3/4</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;1/4</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;1/4</td>
+    <td width="25%" align="center">1/2</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;1/4</td>
+    <td width="25%" align="center">1/2</td>
+    <td width="25%" align="center">3/4</td>
+  </tr>
+</table>
+<p>The general rule for this regression coding scheme is shown below, where k is
+the number of levels of the categorical variable (in this case, k = 4).
+<p>BACKWARD DIFFERENCE regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Level 2</td>
+    <td width="25%" align="center">Level 2 v. Level 3</td>
+    <td width="25%" align="center">Level 3 v. Level 4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;-(k-1)/k</td>
+    <td width="25%" align="center">-(k-2)/k</td>
+    <td width="25%" align="center">-(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">1/k</td>
+    <td width="25%" align="center">-(k-2)/k</td>
+    <td width="25%" align="center">-(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;1/k</td>
+    <td width="25%" align="center">2/k</td>
+    <td width="25%" align="center">-(k-3)/k</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;1/k</td>
+    <td width="25%" align="center">2/k</td>
+    <td width="25%" align="center">3/k</td>
+  </tr>
+</table>
+<blockquote>
+<pre><b>data backward;
+  set c:\sasreg\hsb2;
+
+  if race = 1 then x1 = -3/4; else x1 = 1/4;
+
+  if race = 1 or race = 2 then x2 = -1/2;
+  if race = 3 or race = 4 then x2 = 1/2;
+
+  if race = 4 then x3 = 3/4; else x3 = -1/4;
+
+run;
+
+proc reg data = backward;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1       11.54167        3.28613       3.51      0.0006
+x2                             1       -9.80000        3.38783      -2.89      0.0043
+x3                             1        5.85517        2.15276       2.72      0.0071</pre>
+<p>
+In the above example, the
+regression coefficient for <b> x1</b> is the mean of <b> write</b> for level
+2 minus the mean of <b> write</b>
+for level 1 (58- 46.4583 = 11.542).&nbsp; Likewise, the
+regression coefficient for <b> x2</b> is the mean of <b> write</b> for level 3
+minus the mean of <b> write</b>
+for level 2, and the
+regression coefficient for <b> x3</b> is the mean of <b> write</b> for level 4
+minus the mean
+of <b> write</b> for level 3.</p>
+
+<p>
+<a name="HELMERT"><b>5.4 Helmert Coding</b></a></p>
+<p>Helmert coding compares each level of a categorical variable to the mean of the subsequent levels.&nbsp; Hence, the first
+contrast compares the mean of
+the dependent variable for level 1 of <b> race</b> with the mean of all of the subsequent levels of
+<b>
+race</b> (levels 2, 3, and 4), the second contrast compares the mean of
+the dependent variable for level 2 of <b> race</b> with the mean of all of the subsequent levels of
+<b>
+race</b> (levels 3 and 4), and the third contrast compares the mean of
+the dependent variable for level 3 of <b> race</b> with the mean of all of the subsequent levels of
+<b>
+race</b> (level 4). While this type of coding system does not make much sense
+with a nominal variable like <b>race</b>, it is useful in
+situations where the levels of the categorical variable are ordered say, from
+lowest to highest, or smallest to largest, etc.
+<p>
+For Helmert coding, we see that the first comparison comparing level 1
+with levels 2, 3 and 4 is coded 1, -1/3, -1/3
+and -1/3, reflecting the comparison of
+level 1 with all other levels.&nbsp; The second comparison is coded 0, 1, -1/2 and
+-1/2,
+reflecting that it compares level 2 with levels 3 and 4.&nbsp; The third
+comparison is coded 0, 0, 1 and -1, reflecting that level 3 is compared to level 4.
+<p><font size='3'><b>Method 1: PROC GLM</b> </font></p>
+<p>
+HELMERT contrast coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (c1)</td>
+    <td width="25%" align="center">New variable 2 (c2)</td>
+    <td width="25%" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Later</td>
+    <td width="25%" align="center">Level 2 v. Later</td>
+    <td width="25%" align="center">Level 3 v. Later</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;1</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-1/3</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;-1/3</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">1</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;-1/3</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1</td>
+  </tr>
+</table>
+<p>Below we illustrate how to form these comparisons using <b>proc glm</b> with <b>estimate</b>
+statements.&nbsp; Note that on the first estimate statement we indicate -.33333
+and not just -.33.&nbsp; We need to use this many decimals so the sum of all of
+the contrast coefficients (i.e., 1 + -.333333 + -.333333 + -.333333) is sufficiently close to
+zero, otherwise SAS will say that the term cannot be estimated.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus levels 2, 3 &amp; 4' race 1 -.33333 -.33333 -.33333;
+  estimate 'level 2 versus levels 3 &amp; 4' race 0 1 -.5 -.5;
+  estimate 'level 3 versus level 4' race 0 0 1 -1;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                                      Standard
+Parameter                             Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus levels 2, 3 &amp; 4     -6.96006384      2.17520603      -3.20      0.0016
+level 2 versus levels 3 &amp; 4         6.87241379      2.92632513       2.35      0.0198
+level 3 versus level 4             -5.85517241      2.15275967      -2.72      0.0071</pre>
+
+<p>The contrast estimate for the comparison between level 1 and the remaining
+levels is calculated by taking the mean of the dependent variable for level 1
+and subtracting the
+mean of the dependent variable for levels 2, 3 and 4: 46.4583 - [(58 + 48.2 + 54.0552) / 3] =
+-6.960, which is statistically significant.&nbsp; This means that the mean of <b>
+write</b> for level 1 of <b> race</b> is statistically significantly different from the mean
+of <b> write</b> for levels 2 through 4.&nbsp; As noted above, this comparison probably
+is not meaningful because the variable <b> race</b> is nominal.&nbsp; This type of
+comparison would be more meaningful if the categorical variable was
+ordinal.&nbsp;&nbsp;</p>
+
+<p> To calculate the contrast coefficient for the comparison between
+level 2 and the later levels, you subtract the mean of the dependent variable
+for levels 3 and 4 from the mean of the dependent variable for level 2:&nbsp; 58
+- [(48.2 + 54.0552) / 2] = 6.872, which is statistically significant.&nbsp; The contrast estimate for the comparison between level 3 and level 4 is the
+difference between the mean of the dependent variable for the two levels:&nbsp; 48.2 - 54.0552 = -5.855, which is also statistically significant.</p>
+
+<p><b>Method 2: Regression</b></p>
+<p>Below we see an example of Helmert regression coding.&nbsp; For the first comparison (comparing level 1 with
+levels 2, 3 and 4)
+the codes are 3/4 and -1/4 -1/4 -1/4.&nbsp; The second comparison compares level 2 with
+levels 3 and 4 and is coded
+0 2/3 -1/3 -1/3.&nbsp; The third comparison
+compares level 3 to level 4 and is coded 0 0 1/2 -1/2.&nbsp;
+<p>
+HELMERT regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 1 v. Later</td>
+    <td width="25%" align="center">Level 2 v. Later</td>
+    <td width="25%" align="center">Level 3 v. Later</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;3/4</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">2/3</td>
+    <td width="25%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">-1/3</td>
+    <td width="25%" align="center">1/2</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;-1/4</td>
+    <td width="25%" align="center">-1/3</td>
+    <td width="25%" align="center">-1/2</td>
+  </tr>
+</table>
+<p>Below we illustrate how to create <b>x1</b>, <b>x2</b> and <b>x3</b> and enter
+these new variables into the regression model using <b>porc reg</b>.</p>
+
+<blockquote>
+
+<pre><b>data helmert;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = .75; else x1 = -.25;
+
+  if race = 1 then x2 = 0;
+  if race = 2 then x2 = 2/3;
+  if race = 3 or race = 4 then x2 = -1/3;
+
+  if race = 1 or race = 2 then x3 = 0;
+  if race = 3 then x3 = 1/2;
+  if race = 4 then x3 = -1/2;
+
+run;
+
+proc reg data = helmert;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+
+</blockquote>
+
+<p>As you see below, the regression coefficient for <b> x1</b>  is the mean of <b> write</b> for level 1 (Hispanic) versus all subsequent
+levels (levels 2, 3 and 4).&nbsp; Likewise, the
+regression coefficient for <b> x2</b>  is the mean of <b> write</b> for level 2 minus the mean of <b> write</b>
+for levels 3 and 4.&nbsp; Finally, the
+regression coefficient for <b> x3</b> is the mean of <b> write</b> for level 3 minus the mean of <b> write</b>
+for level 4.</p>
+
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67836        0.98212      52.62      &lt;.0001
+x1                             1       -6.96003        2.17521      -3.20      0.0016
+x2                             1        6.87241        2.92633       2.35      0.0198
+x3                             1       -5.85517        2.15276      -2.72      0.0071</pre>
+<p><a name="reverse"><b>5.5 Reverse Helmert Coding</b></a></p>
+<p>Reverse Helmert coding (also know as difference coding) is just the opposite of Helmert coding:&nbsp;instead of
+comparing each level of categorical variable to the mean of the subsequent
+level(s),
+each is compared to the mean of the previous level(s).&nbsp; In our example, the first contrast codes the comparison of the mean of the
+dependent variable for level 2 of <b> race</b> to the mean of the dependent variable for
+level 1 of <b>race</b>.&nbsp; The second comparison compares the mean of the
+dependent variable level 3 of <b> race</b> with both levels 1 and&nbsp; 2 of <b> race</b>, and the third comparison compares the
+mean of the dependent variable for level 4 of <b> race</b> with levels 1, 2 and 3. Clearly, this coding system does not make much sense with our
+example of <b> race</b> because it is a nominal variable.&nbsp; However, this system is
+useful when the levels of the categorical variable are ordered in a meaningful
+way.&nbsp; For example, if we had a categorical variable in which work-related
+stress was coded as low, medium or high, then comparing the means of the
+previous levels of the variable would make more sense.&nbsp;<p>For reverse
+Helmert coding, we see that the first comparison comparing levels
+1 and 2 are coded -1 and 1 to compare these levels, and 0 otherwise.&nbsp; The
+second comparison comparing levels 1, 2 with level 3 are coded -1/2, -1/2,&nbsp;
+1
+and 0, and the last comparison comparing levels 1, 2 and 3 with level 4 are coded
+-1/3, -1/3, -1/3 and 1.
+
+<p><font size='3'><b>Method 1: PROC GLM</b> </font></p>
+
+<p>REVERSE HELMERT contrast coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">New variable 1 (c1)</td>
+    <td width="25%" align="center">New variable 2 (c2)</td>
+    <td width="25%" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="25%" align="center">Level 2 v. Level 1</td>
+    <td width="25%" align="center">Level 3 v. Previous</td>
+    <td width="25%" align="center">Level 4 v. Previous</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">-1</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1/3</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;1</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1/3</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">1</td>
+    <td width="25%" align="center">-1/3</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;0</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">1</td>
+  </tr>
+</table>
+<p>Below we illustrate how to form these comparisons using <b>proc</b> <b>glm</b> with
+<b>estimate </b>statements.&nbsp; Note that on the third estimate statement we
+indicate -.33333 and not just -.33.&nbsp; We need to use this many decimals so
+the sum of all of the contrast coefficients (i.e., -.333333 + - .333333 + - .333333
++ 1) is sufficiently close to zero, otherwise SAS will say that the term cannot
+be estimated.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 2 versus level1' race -1 1 0 0;
+  estimate 'level 3 versus levels 1 &amp; 2' race -.5 -.5 1 0;
+  estimate 'level 4 versus levels 1, 2 &amp; 4' race -.33333 -.33333 -.33333 1;
+run;
+quit;</b></pre>
+
+</blockquote>
+
+<p>An alternate way, which solves the problem of the repeating decimals, is shown
+below.&nbsp; Only one output is shown
+because the two outputs are identical.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 2 versus level 1' race -1 1 0 0;
+  estimate 'level 3 versus levels 1 &amp; 2' race -.5 -.5 1 0;
+  estimate 'level 4 versus levels 1, 2 &amp; 4' race -1 -1 -1 3 / divisor=3;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                                      Standard
+Parameter                             Estimate           Error    t Value    Pr &gt; |t|
+
+level 2 versus level1               11.5416667      3.28612920       3.51      0.0006
+level 3 versus levels 1 &amp; 2         -4.0291667      2.60236299      -1.55      0.1232
+level 4 versus levels 1, 2 &amp; 4       3.1690296      1.48797250       2.13      0.0344</pre>
+
+<p>The contrast estimate for the first comparison shown in this output was
+calculated by subtracting the mean of the dependent variable for level 2 of the
+categorical variable from the mean of the dependent variable for level 1:&nbsp; 58 - 46.4583 = 11.542.&nbsp;
+This result is statistically significant.&nbsp; The
+contrast estimate for the second comparison (between level 3 and the previous
+levels) was calculated by subtracting the mean of the dependent variable for
+levels 1 and 2 from that of level 3:&nbsp; 48.2 - [(46.4583 + 58) / 2] =
+-4.029.&nbsp; This result is not statistically significant, meaning that there
+is not a reliable difference between the mean of <b> write</b> for level 3 of <b> race</b>
+compared to the mean of <b> write</b> for levels 1 and 2 (Hispanics and Asians).&nbsp;
+As noted above, this type of coding system does not make much sense for a
+nominal variable such as <b>race</b>.&nbsp; For the comparison of level 4 and the
+previous levels, you take the mean of the dependent variable for the those
+levels and subtract it from the mean of the dependent variable for level
+4:&nbsp; 54.0552 - [(46.4583 + 58 + 48.2) / 3] = 3.169.&nbsp; This result is
+statistically significant.&nbsp;&nbsp;</p>
+
+<p>
+<b>Method 2: Regression</b></p>
+<p>The regression coding for reverse Helmert coding is shown below.&nbsp; For the first comparison, where the
+first and second level are compared, <b>x1</b> is coded -1/2 and 1/2 and 0
+otherwise.&nbsp; For the second comparison, the values of <b>x2</b>
+are coded -1/3 -1/3&nbsp; 2/3 and 0.&nbsp;
+Finally, for the third comparison, the values of <b>x3</b> are coded -1/4 -1/4
+-/14 and 3/4.&nbsp;&nbsp;&nbsp;
+
+<p>REVERSE HELMERT regression coding
+<table border="1" width="100%">
+  <tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">New variable 1 (x1)</td>
+    <td width="25%" align="center">New variable 2 (x2)</td>
+    <td width="25%" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">-1/2</td>
+    <td width="25%" align="center">-1/3</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">1/2</td>
+    <td width="25%" align="center">-1/3</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">2/3</td>
+    <td width="25%" align="center">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">0</td>
+    <td width="25%" align="center">3/4</td>
+  </tr>
+</table>
+
+<p>Below we illustrate how to create <b>x1</b>, <b>x2</b> and <b>x3</b> and enter
+these new variables into the regression model using <b>proc</b> <b>reg</b>.</p>
+
+<blockquote>
+
+<pre><b>data diff;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = -1/2;
+  if race = 2 then x1 = 1/2;
+  if race = 3 or race = 4 then x1 = 0;
+
+  if race = 1 or race = 2 then x2 = -1/3;
+  if race = 3 then x2 = 2/3;
+  if race = 4 then x2 = 0;
+
+  if race = 4 then x3 = 3/4; else x3 = -1/4;
+
+run;
+
+proc reg data = diff;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67839        0.98212      52.62      &lt;.0001
+x1                             1       11.54167        3.28613       3.51      0.0006
+x2                             1       -4.02917        2.60236      -1.55      0.1232
+x3                             1        3.16905        1.48799       2.13      0.0344</pre>
+<p>
+In the above examples, both the
+regression coefficient for <b> x1</b> and the contrast estimate for c1
+would be the mean of <b> write</b> for level 1 (Hispanic) minus the mean of
+<b> write</b>
+for level 2 (Asian).&nbsp; Likewise, the
+regression coefficient for <b> x2</b> and the contrast estimate for c2
+would be the mean of <b> write</b> for levels 1 and 2 combined minus the mean of
+<b> write</b>
+for level 3.&nbsp; Finally, the
+regression coefficient for <b> x3</b> and the contrast estimate for c3
+would be the mean of <b> write</b> for levels 1, 2 and 3 combined minus the mean of
+<b> write</b>
+for level 4.</p>
+
+<p>
+<a name="DEVIATION"><b>5.6 Deviation Coding</b></a></p>
+
+<p>This coding system compares the mean of the dependent variable for a
+given level to the overall mean of the dependent variable.&nbsp; In our example below, the first comparison compares level 1
+(Hispanics)
+to all levels of <b>race</b>, the second comparison compares level 2 (Asians) to
+all levels of <b>race</b>, and the third comparison compares level 3 (African Americans) to
+all levels of <b>race</b>.
+
+<p>As you can see, the logic of the contrast coding is fairly straightforward.&nbsp; The first
+comparison compares level 1 to levels 2, 3 and 4.&nbsp; A value of 3/4 is
+assigned to level 1
+and a value of -1/4 is assigned to levels 2, 3 and 4.&nbsp; Likewise, the second comparison
+compares level 2 to levels 1, 3 and 4. A value of 3/4 is assigned to level
+2 and
+a value of -1/4 is assigned to levels 1, 3 and 4. A similar pattern is followed for assigning values for the third comparison.&nbsp; Note that you could
+substitute 3 for 3/4 and 1 for 1/4 and you would get the same test of
+significance, but the contrast coefficient would be different.
+
+<p><font size="3"><b>Method 1: PROC GLM</b></font></p>
+
+<p>DEVIATION contrast coding
+<table border="1" width="100%" height="118">
+  <tr>
+    <td width="25%" height="22">Level of race</td>
+    <td width="25%" height="22" align="center">New variable 1 (c1)</td>
+    <td width="25%" height="22" align="center">New variable 2 (c2)</td>
+    <td width="25%" height="22" align="center">New variable 3 (c3)</td>
+  </tr>
+  <tr>
+    <td width="25%" height="22">&nbsp;</td>
+    <td width="25%" height="22" align="center">Level 1 v. Mean</td>
+    <td width="25%" height="22" align="center">Level 2 v. Mean</td>
+    <td width="25%" height="22" align="center">Level 3 v. Mean</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left" height="22">1 (Hispanic)</td>
+    <td width="25%" align="center" height="22">3/4</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left" height="22">2 (Asian)</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+    <td width="25%" align="center" height="22">3/4</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left" height="1">3 (African American)</td>
+    <td width="25%" align="center" height="1">-1/4</td>
+    <td width="25%" align="center" height="1">-1/4</td>
+    <td width="25%" align="center" height="1">3/4</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left" height="22">4 (white)</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+    <td width="25%" align="center" height="22">-1/4</td>
+  </tr>
+</table>
+
+<p>Below we illustrate how to form these comparisons using <b>proc glm</b>.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus levels 2, 3 &amp; 4' race .75 -.25 -.25 -.25;
+  estimate 'level 2 versus levels 1, 3 &amp; 4' race -.25 .75 -.25 -.25;
+  estimate 'level 3 versus levels 1, 2 &amp; 4' race -.25 -.25 .75 -.25;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                                      Standard
+Parameter                             Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus levels 2, 3 &amp; 4     -5.22004310      1.63140849      -3.20      0.0016
+level 2 versus levels 1, 3 &amp; 4      6.32162356      2.16031394       2.93      0.0038
+level 3 versus levels 1, 2 &amp; 4     -3.47837644      1.73230472      -2.01      0.0460</pre>
+
+<p> The contrast estimate is the mean for level 1 minus the grand mean.&nbsp;
+However, this grand mean is not the mean of the dependent variable that is listed in the
+output of the <b>means</b> command above.&nbsp; Rather it is the mean of means of the
+dependent variable at each level of the categorical variable:&nbsp; (46.4583 +
+58 + 48.2 + 54.0552) / 4 = 51.678375.&nbsp; This contrast estimate is then 46.4583 - 51.678375 =
+<FONT COLOR="#000000"> -5.220.&nbsp;
+The difference between this value and zero (the null hypothesis that the
+contrast coefficient is zero) is statistically significant (p = .0016), and the
+t-value for this test of -3.20.&nbsp; The results for the next two contrasts were computed in a similar
+manner.</FONT><!--- <h3>Contrast Results (K Matrix)</h3> ---><p></p>
+
+<!--- * WAS /CENTER* --->
+
+<!--- * WAS /CENTER* --->
+<p>
+<b>Method 2: Regression</b></p>
+<p>As you see in the example below, the regression
+coding is accomplished by assigning 1 to level 1 for the first
+comparison (because level 1 is the level to be compared to all others), a
+ 1 to level 2 for the second comparison (because level 2 is to be
+compared to all others), and 1 to level 3 for the third comparison
+(because level 3 is to be compared to all others).&nbsp; Note that 
+a&nbsp; -1 is assigned to level 4 for all three comparisons (because it 
+is the level
+that is never compared to the other levels) and all other values are
+assigned a 0.&nbsp; This regression coding scheme yields the comparisons
+described above.
+
+</p><p>DEVIATION regression coding
+<table width="100%" height="118" border="1">
+  <tbody><tr>
+    <td width="25%" height="22">Level of race</td>
+    <td width="25%" height="22" align="center">New variable 1 (x1)</td>
+    <td width="25%" height="22" align="center">New variable 2 (x2)</td>
+    <td width="25%" height="22" align="center">New variable 3 (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%" height="22">&nbsp;</td>
+    <td width="25%" height="22" align="center">Level 1 v. Mean</td>
+    <td width="25%" height="22" align="center">Level 2 v. Mean</td>
+    <td width="25%" height="22" align="center">Level 3 v. Mean</td>
+  </tr>
+  <tr>
+    <td width="25%" height="22" align="left">1 (Hispanic)</td>
+    <td width="25%" height="22" align="center">1</td>
+    <td width="25%" height="22" align="center">0</td>
+    <td width="25%" height="22" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" height="22" align="left">2 (Asian)</td>
+    <td width="25%" height="22" align="center">0</td>
+    <td width="25%" height="22" align="center">1</td>
+    <td width="25%" height="22" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="25%" height="1" align="left">3 (African American)</td>
+    <td width="25%" height="1" align="center">0</td>
+    <td width="25%" height="1" align="center">0</td>
+    <td width="25%" height="1" align="center">1</td>
+  </tr>
+  <tr>
+    <td width="25%" height="22" align="left">4 (white)</td>
+    <td width="25%" height="22" align="center">-1</td>
+    <td width="25%" height="22" align="center">-1</td>
+    <td width="25%" height="22" align="center">-1</td>
+  </tr>
+</tbody></table>
+
+</p><p>Below we illustrate how to create <b>x1</b>, <b>x2</b> and <b>x3</b> and enter
+these new variables into the regression model using <b>proc</b> <b>reg</b>.</p>
+
+<blockquote>
+
+<pre><b>data deviation;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = 1;
+  if race = 2 or race = 3 then x1 = 0;
+  if race = 4 then x1 = -1;
+
+  if race = 2 then x2 = 1;
+  if race = 1 or race = 3 then x2 = 0;
+  if race = 4 then x2 = -1;
+
+  if race = 3 then x3 = 1;
+  if race = 1 or race = 2 then x3 = 0;
+  if race = 4 then x3 = -1; 
+run;
+
+proc reg data = deviation;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+
+</blockquote>
+
+<p>In this example, both the
+regression coefficient for <b> x1</b>  is the mean of <b> write</b> for level 1 (Hispanic) minus the
+grand mean of
+<b> write.&nbsp; </b>Likewise, the
+regression coefficient for <b> x2</b> is the mean <b>write</b> for level 2 (Asian) minus the
+grand mean of <b> write</b>, and so on. As we saw in the previous analyses, all
+three contrasts are statistically significant.</p>
+
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1       -5.22004        1.63141      -3.20      0.0016
+x2                             1        6.32162        2.16031       2.93      0.0038
+x3                             1       -3.47838        1.73230      -2.01      0.0460</pre>
+
+<p><a name="ORTHOGONAL"><b>5.7 Orthogonal Polynomial Coding</b></a></p>
+<p>Orthogonal polynomial coding is a form of trend analysis in that it is looking
+for the linear, quadratic and cubic trends in the categorical variable.&nbsp;
+This type of coding system should be used only with an ordinal variable in which
+the levels are equally spaced.&nbsp; Examples of such a variable might be income or education.&nbsp;
+The table below shows the contrast coefficients for the linear, quadratic and
+cubic trends for the four levels.&nbsp; These could be obtained from most statistics
+books on linear models.
+</p><p>POLYNOMIAL
+<table width="100%" border="1">
+  <tbody><tr>
+    <td width="25%">Level of race</td>
+    <td width="25%" align="center">Linear (x1)</td>
+    <td width="25%" align="center">Quadratic (x2)</td>
+    <td width="25%" align="center">Cubic (x3)</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">1 (Hispanic)</td>
+    <td width="25%" align="center">&nbsp;-.671</td>
+    <td width="25%" align="center">.5</td>
+    <td width="25%" align="center">-.224</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">2 (Asian)</td>
+    <td width="25%" align="center">&nbsp;-.224</td>
+    <td width="25%" align="center">-.5</td>
+    <td width="25%" align="center">.671</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">3 (African American)</td>
+    <td width="25%" align="center">&nbsp;.224</td>
+    <td width="25%" align="center">-.5</td>
+    <td width="25%" align="center">-.671</td>
+  </tr>
+  <tr>
+    <td width="25%" align="left">4 (white)</td>
+    <td width="25%" align="center">&nbsp;.671</td>
+    <td width="25%" align="center">.5</td>
+    <td width="25%" align="center">.224</td>
+  </tr>
+</tbody></table>
+</p><p><font size="3"><b>Method 1: PROC GLM</b></font></p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'linear' race -.671 -.224 .224 .671;
+  estimate 'quadratic' race .5 -.5 -.5 .5;
+  estimate 'cubic' race -.224 .671 -.671 .224;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                            Standard
+Parameter                   Estimate           Error    t Value    Pr &gt; |t|
+
+linear                    2.90227902      1.53520851       1.89      0.0602
+quadratic                -2.84324713      1.96424409      -1.45      0.1494
+cubic                     8.27749195      2.31648010       3.57      0.0004</pre>
+<p>To calculate the contrast estimates for these comparisons, you need to
+multiply the code used in the new variable by the mean for the dependent
+variable for each level of the categorical variable, and then sum the
+values.&nbsp; For example, the code used in <b> x1</b> for level 1 of <b> race</b> is -.671 and
+the mean of <b> write</b> for level 1 is 46.4583.&nbsp; Hence, you would
+multiply -.671
+and 46.4583 and add that to the product of the code for level 2 of <b> x1</b> and its
+mean, and so on.&nbsp; To obtain the contrast estimate for the linear contrast,
+you would do the following:&nbsp; -.671*46.4583 + -.224*58 + .224*48.2 +
+.671*54.0552 = 2.905 (with rounding error).&nbsp; This result is not
+statistically significant at the .05 alpha level, but it is close.&nbsp; The
+quadratic component is also not statistically significant, but the cubic one
+is.&nbsp; This suggests that, if the mean of the dependent variable was plotted
+against <b>race</b>, the line would tend to have two bends.&nbsp; As noted earlier,
+this type of coding system does not make much sense with a nominal variable such
+as <b>race</b>.</p>
+<p><font size="3"><b>Method 2: Regression</b> </font></p>
+
+<p>The regression coding for orthogonal polynomial coding is the same as the
+contrast coding.&nbsp; Below you can see the SAS code for creating <b>x1</b>, <b>x2</b>
+and <b>x3</b> that correspond to the linear, quadratic and cubic trends for <b>race</b>.
+</p><blockquote>
+<pre><b>data poly;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = -.671;
+  if race = 2 then x1 = -.224;
+  if race = 3 then x1 = .224;
+  if race = 4 then x1 = .671;
+
+  if race = 1 then x2 = .5;
+  if race = 2 then x2 = -.5;
+  if race = 3 then x2 = -.5;
+  if race = 4 then x2 = .5;
+
+  if race = 1 then x3 = -.224;
+  if race = 2 then x3 = .671;
+  if race = 3 then x3 = -.671;
+  if race = 4 then x3 = .224;
+
+run;
+
+proc reg data = poly;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1        2.89986        1.53393       1.89      0.0602
+x2                             1       -2.84325        1.96424      -1.45      0.1494
+x3                             1        8.27059        2.31455       3.57      0.0004</pre>
+<p>The regression coefficients obtained from this analysis are the same as the
+contrast coefficients obtained using <b>proc glm</b>.&nbsp;&nbsp;</p>
+<p>
+<a name="User"><b>5.8 User Defined Coding</b></a></p>
+<p>You can use SAS for any general kind of coding scheme.&nbsp; For
+our example, we would like to <font size="3">make the following three comparisons:&nbsp;</font></p>
+<p><font size="3"> 1) level 1 to level 3&nbsp;&nbsp;<br>
+2) level 2 to levels 1 and
+4&nbsp;<br>
+ 3) levels 1 and 2 to levels 3 and 4.</font></p>
+<p>In order to
+compare level 1 to level 3, we use the contrast coefficients 1 0 -1 0. To
+compare level 2 to levels 1 and 4 we use the contrast coefficients -1/2 1 0 -1/2
+.&nbsp; Finally, to compare levels 1 and 2 with levels 3 and 4 we use the
+coefficients 1/2 1/2 -1/2 -1/2.&nbsp; Before proceeding to the SAS code necessary
+to conduct these analyses, let's take a moment to more fully explain the logic
+behind the selection of these contrast coefficients.&nbsp;&nbsp;</p>
+<p> For the first
+contrast, we are comparing level 1 to level 3, and the contrast coefficients are
+1 0 -1 0.&nbsp; This means that the levels associated with the contrast
+coefficients with opposite signs are being compared.&nbsp; In fact, the mean of
+the dependent variable is multiplied by the contrast coefficient.&nbsp; Hence,
+levels 2 and 4 are not involved in the comparison:&nbsp; they are multiplied by
+zero and "dropped out."&nbsp; You will also notice that the contrast
+coefficients sum to zero.&nbsp; This is necessary.&nbsp; If the contrast
+coefficients do not sum to zero, the contrast is not estimable and SAS will
+issue an error message. Which level of the categorical variable is assigned a
+positive or negative value is not terribly important:&nbsp; 1 0 -1 0 is the same as
+-1 0 1 0 in that both of these codings compare the first and the third levels of the
+variable.&nbsp; However, the sign of the regression coefficient would change.&nbsp;&nbsp;</p>
+<p>
+Now let's look at the contrast coefficients for the second and third
+comparisons.&nbsp; You will notice that in both cases we use fractions that sum
+to one (or minus one).&nbsp; They do not have to sum to one (or minus one).&nbsp; You may wonder why we would use fractions like
+-1/2
+1 0 -1/2 instead of whole numbers such as -1 2 0 -1.&nbsp; While -1/2 1 0 -1/2 and
+-1 2 0 -1 both compare level 2 with levels 1 and 4 and both will give you the
+same t-value and p-value for the regression coefficient, the contrast estimates/regression
+coefficients themselves would be different, as would their interpretation.&nbsp;
+The coefficient for the -1/2 1 0 -1/2 contrast is the mean of level 2 minus the
+mean of the means for levels 1 and 4:&nbsp; 58 - (46.4583 + 54.0552)/2 =
+7.74325.&nbsp; (Alternatively, you can multiply the contrasts by the mean of the
+dependent variable for each level of the categorical variable: -1/2*46.4583 +
+1*58.00 + 0*48.20 + -1/2*54.0552 = 7.74325.&nbsp; Clearly these are equivalent
+ways of thinking about how the contrast coefficient is calculated.)&nbsp; By comparison,
+the coefficient for the -1 2 0 -1 contrast is two times the mean for level 2
+minus the means of the dependent variable for levels 1 and 4:&nbsp; 2*58 -
+(46.4583 + 54.0552)
+= 15.4865, which is the same as -1*46.4583 + 2*58 + 0*48.20 - 1*54.0552 =
+15.4865. Note that the regression coefficient using the contrast coefficients -1
+2 0 -1 is twice the regression coefficient obtained when -1/2 1 0 -1/2 is
+used.</p>
+<p><font size="3"><b>Method 1: PROC GLM</b></font></p><p>In order to
+compare level 1 to level 3, we use the contrast coefficients 1 0 -1 0. To
+compare level 2 to levels 1 and 4 we use the contrast coefficients -1/2 1 0 -1/2
+.&nbsp; Finally, to compare levels 1 and 2 with levels 3 and 4, we use the
+coefficients 1/2 1/2 -1/2 -1/2.&nbsp; These coefficients are used in the <b>estimate</b>
+statements below.</p>
+
+<blockquote>
+
+<pre><b>proc glm data = c:\sasreg\hsb2;
+  class race;
+  model write = race;
+  estimate 'level 1 versus level 3' race 1 0 -1 0;
+  estimate 'level 2 versus levels 1 &amp; 4' race -.5 1 0 -.5;
+  estimate 'levels 1 &amp; 2 versus levels 3 &amp; 4' race .5 .5 -.5 -.5;
+run;
+quit;</b></pre>
+</blockquote>
+<pre>                                                        Standard
+Parameter                               Estimate           Error    t Value    Pr &gt; |t|
+
+level 1 versus level 3               -1.74166667      2.73248820      -0.64      0.5246
+level 2 versus levels 1 &amp; 4           7.74324713      2.89718584       2.67      0.0082
+levels 1 &amp; 2 versus levels 3 &amp; 4      1.10158046      1.96424409       0.56      0.5756</pre>
+
+<p> The contrast estimate for the first comparison is the mean
+of level 1 minus the mean for level 3, and the significance of this is .525,
+i.e., not significant.&nbsp; The second contrast estimate is 7.743, which is the mean of level 2 minus the mean
+of level 1 and level 4, and this difference is significant, p = 0.008.&nbsp; The
+final contrast estimate is 1.1 which is the mean of levels 1 and 2 minus the
+mean of levels 3 and 4, and this contrast is not statistically significant, p = .576.</p>
+
+<p><font size="3">
+<b>
+Method 2: Regression</b></font></p>
+<p>As in the prior example, we will <font size="3">make the following three comparisons:&nbsp;</font></p>
+<blockquote>
+<p><font size="3"> 1) level 1 to level 3,&nbsp;&nbsp;<br>
+2) level 2 to levels 1 and
+4 and&nbsp;&nbsp;&nbsp;<br>
+ 3) levels 1 and 2 to levels 3 and 4.</font></p>
+</blockquote>
+<p><font size="3">For methods 1 and 2 it was quite easy to translate the
+ comparisons we wanted to make
+into contrast codings, but it is not as easy to translate the 
+comparisons we
+want into a regression coding scheme.&nbsp; If we know the contrast 
+coding system, then
+we can convert that into a regression coding system using the SAS 
+program shown below. As you can see, we place the three contrast codings
+ we want into the matrix <b>c</b>
+ and then perform a set of matrix operations on <b>c,</b> yielding the matrix <b>x</b>.
+We then display <b>x</b> using the <b>print</b> command.&nbsp;</font></p>
+<blockquote>
+<pre><b>proc iml;
+  c = {  1 -.5  .5, 
+         0   1  .5,
+        -1   0 -.5,
+         0 -.5 -.5 };
+  x = c*inv( c`*c );
+  print x;
+run;
+quit;</b></pre>
+</blockquote>
+<p>&nbsp;Below we see
+the output from this program showing the regression coding scheme we would use.</p>
+<pre>            X
+
+     -0.5        -1       1.5
+      0.5         1      -0.5
+     -1.5        -1       1.5
+      1.5         1      -2.5</pre>
+<p>This converted the contrast coding into the regression
+coding that we need for running this analysis with <b>proc reg</b>.&nbsp; Below, we use <b>if-then</b>
+statements to create <b>x1</b>, <b> x2</b> and <b>x3</b>
+according to the coding shown above and then enter them into the regression
+analysis.</p>
+<blockquote>
+<pre><b>data special;
+  set c:\sasreg\hsb2;
+  if race = 1 then x1 = -0.5;
+  if race = 2 then x1 =   .5;
+  if race = 3 then x1 = -1.5;
+  if race = 4 then x1 =  1.5;
+
+  if race = 1 or race = 3 then x2 = -1;
+  if race = 2 or race = 4 then x2 =  1;
+
+  if race = 1 or race = 3 then x3 = 1.5;
+  if race = 2 then x3 = -.5;
+  if race = 4 then x3 =-2.5;
+
+run;
+
+proc reg data = special;
+  model write = x1 x2 x3;
+run;
+quit;</b></pre>
+
+</blockquote>
+
+<p><font size="3">The first comparison of the mean of the dependent variable for
+level 1 to level 3 of the categorical variable was not statistically
+significant, while the comparison of the mean of the dependent variable for
+level 2 to that of levels 1 and 4 was.&nbsp; The comparison of the mean of the dependent
+variable for levels 1 and 2 to that of levels 3 and 4 also was not statistically
+significant.</font></p>
+
+<pre>                                 Parameter Estimates
+
+                                      Parameter       Standard
+Variable     Label            DF       Estimate          Error    t Value    Pr &gt; |t|
+
+Intercept    Intercept         1       51.67838        0.98212      52.62      &lt;.0001
+x1                             1       -1.74167        2.73249      -0.64      0.5246
+x2                             1        7.74325        2.89719       2.67      0.0082
+x3                             1        1.10158        1.96424       0.56      0.5756</pre>
+
+<p><b>5.9 Summary</b></p>
+
+<p>This page has described a number of different coding systems that you could
+use for categorical data, and two different strategies you could use for
+performing the analyses.&nbsp; You can choose a coding system that yields
+comparisons that make the most sense for testing your hypotheses.&nbsp; In general we would
+recommend using the easiest method that accomplishes your goals.</p>
+
+<p><b>5.10 Additional Information</b></p>
+
+<p>Here are some additional resources.</p>
+<ul>
+  <li><a href="http://statistics.ats.ucla.edu/stat/sas/examples/da/dasas6.htm">SAS Textbook Examples from Design and Analysis: Chapter 6</a></li>
+  <li><a href="http://statistics.ats.ucla.edu/stat/sas/examples/da/dasas7.htm">SAS Textbook Examples from Design and Analysis: Chapter 7</a></li>
+  <li><a href="http://statistics.ats.ucla.edu/stat/sas/examples/ara/arasas8.htm">SAS Textbook Examples: Applied Regression Analysis, Chapter 8</a></li>
+  <li><a href="http://psych.colorado.edu/%7Emcclella/grad_stat/con1ans.pdf">One-Way
+ANOVA Contrast Code Problems From Charles Judd and Gary McClelland&nbsp;</a></li>
+  <li><a href="http://psych.colorado.edu/%7Emcclella/grad_stat/con2ans.pdf">Two-way contrast code solutions</a></li>
+</ul>
+
+
+
+
+<div style="clear:both;">
+<p style="float:left;">
+<a href="http://statistics.ats.ucla.edu/stat/mult_pkg/faq/general/citingats.htm">How to cite this page</a></p>
+<p style="float:right;">
+<a href="http://statistics.ats.ucla.edu/stat/apps/codetrack/errdirect.php">
+Report an error on this page or leave a comment</a>
+</p>
+</div>
+
+<div style="clear:both">
+<p>The content of this web site should not be construed as an endorsement
+of any particular web site, book, or software product by the
+University of California.</p>
+</div>
+
+<!-- closes bodycontainer from header -->
+</div>
+
+<div id="footerTop">
+  <div id="pageFooterBoxTop">
+    <div id="footerProjectsDetail">
+      <h2 class="footerProjectsDetailTitle">IDRE Research Technology Group</h2>
+      <div class="projectDetailBox">
+        <div class="projectIcon"></div>
+        <div class="projectDetail">
+          <h2><a href="https://idre.ucla.edu/hpc">High Performance Computing</a></h2>
+        </div>
+      </div>
+      <div class="projectDetailBox">
+        <div class="projectIcon"></div>
+        <div class="projectDetail">
+          <h2><a href="https://idre.ucla.edu/programs/stats">Statistical Computing</a></h2>
+        </div>
+      </div>
+      <div class="projectDetailBox">
+        <div class="projectIcon"></div>
+        <div class="projectDetail">
+          <h2><a href="https://idre.ucla.edu/gis-visualization">GIS and Visualization</a></h2>
+        </div>
+      </div>
+    </div>
+    <div id="footerProjects">
+      <div class="projectMenu">
+<ul class="menu"><li class="leaf first menu-mlid-4445"><a href="https://idre.ucla.edu/hpc" title="High Performance Computing" id="custom_breadcrumbs_menu-4445">High Performance Computing</a></li>
+<li class="leaf menu-mlid-7191"><a href="https://idre.ucla.edu/gis" title="" id="custom_breadcrumbs_menu-7191">GIS</a></li>
+<li class="leaf menu-mlid-4447"><a href="https://idre.ucla.edu/stats" title="Statistical Computing" id="custom_breadcrumbs_menu-4447">Statistical Computing</a></li>
+<li class="leaf menu-mlid-4449"><a href="https://idre.ucla.edu/hoffman2" title="Hoffman2 Cluster" id="custom_breadcrumbs_menu-4449">Hoffman2 Cluster</a></li>
+<li class="leaf menu-mlid-4466"><a href="https://idre.ucla.edu/mapshare" title="" id="custom_breadcrumbs_menu-4466">Mapshare</a></li>
+<li class="leaf menu-mlid-7197"><a href="https://idre.ucla.edu/events/classes" title="" id="custom_breadcrumbs_menu-7197">Classes</a></li>
+<li class="leaf menu-mlid-7626"><a href="https://idre.ucla.edu/hoffman2/getting-started" title="" id="custom_breadcrumbs_menu-7626">Hoffman2 Account Application</a></li>
+<li class="leaf menu-mlid-4471"><a href="https://idre.ucla.edu/visualization" title="" id="custom_breadcrumbs_menu-4471">Visualization</a></li>
+<li class="leaf menu-mlid-7198"><a href="https://idre.ucla.edu/events/conferences" title="" id="custom_breadcrumbs_menu-7198">Conferences</a></li>
+<li class="leaf menu-mlid-7627"><a href="https://idre.ucla.edu/hoffman2/cluster-statistics" title="" id="custom_breadcrumbs_menu-7627">Hoffman2 Usage Statistics</a></li>
+<li class="leaf menu-mlid-4465"><a href="https://idre.ucla.edu/3d-modeling" title="" id="custom_breadcrumbs_menu-4465">3D Modeling</a></li>
+<li class="leaf menu-mlid-7192"><a href="https://idre.ucla.edu/reading-materials" title="" id="custom_breadcrumbs_menu-7192">Reading Materials</a></li>
+<li class="leaf menu-mlid-4472"><a href="http://portal.ucgrid.org/" title="" id="custom_breadcrumbs_menu-4472">UC Grid Portal</a></li>
+<li class="leaf menu-mlid-4467"><a href="https://idre.ucla.edu/technology-sandbox" title="" id="custom_breadcrumbs_menu-4467">Technology Sandbox</a></li>
+<li class="leaf menu-mlid-7713"><a href="http://lists.ucla.edu/cgi-bin/mailman/listinfo/idremailinglist" title="" id="custom_breadcrumbs_menu-7713">IDRE Listserv</a></li>
+<li class="leaf menu-mlid-4473"><a href="http://grid.ucla.edu/" title="" id="custom_breadcrumbs_menu-4473">UCLA Grid Portal</a></li>
+<li class="leaf menu-mlid-7671"><a href="https://idre.ucla.edu/gis-visualization/sandbox-access" title="" id="custom_breadcrumbs_menu-7671">Tech Sandbox Access</a></li>
+<li class="leaf menu-mlid-7773"><a href="https://idre.ucla.edu/resources" title="" id="custom_breadcrumbs_menu-7773">IDRE Resources</a></li>
+<li class="leaf menu-mlid-7630"><a href="https://idre.ucla.edu/hpc/shared-cluster-program" title="" id="custom_breadcrumbs_menu-7630">Shared Cluster &amp; Storage</a></li>
+<li class="leaf menu-mlid-7280"><a href="https://idre.ucla.edu/data-centers" title="Data Centers" id="custom_breadcrumbs_menu-7280">Data Centers</a></li>
+<li class="leaf menu-mlid-8026"><a href="http://dataarchives.ss.ucla.edu/" title="Social Sciences Data Archive" id="custom_breadcrumbs_menu-8026">Social Sciences Data Archive</a></li>
+<li class="leaf last menu-mlid-8013"><a href="https://idre.ucla.edu/about" title="" id="custom_breadcrumbs_menu-8013">About IDRE</a></li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div><div id="footerBottom">
+  <div id="pageFooterBoxBtm">
+    <div id="footerLeft">
+      <div id="uclaSprite"> <a href="http://www.ucla.edu/" title="University of California, Los Angeles Home"></a> </div>
+      <div id="footerMenu">
+        <ul class="footerMenu_List" title="Site Links">
+          <li> <a href="https://idre.ucla.edu/about">About</a> </li>
+          <li> <a href="https://idre.ucla.edu/contact">Contact</a> </li>
+          <li> <a href="https://idre.ucla.edu/news">News</a> </li>
+          <li> <a href="https://idre.ucla.edu/events">Events</a> </li>
+          <li> <a href="https://idre.ucla.edu/experts">Our Experts</a> </li>
+        </ul>
+        <div id="footerCopyright">
+          <ul class="footerTOS_List">
+             <li>© 2017 UC Regents</li>
+          <li><a href="http://www.ucla.edu/terms-of-use/" target="_blank" title="UCLA Terms of Use">Terms of Use &amp; Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="footerRight">
+      <div id="oitSprite"> <a id="oitLink" title="Office of Information Technology" href="http://oit.ucla.edu/"></a> </div>
+      <div id="footerTOS"> </div>
+    </div>
+  </div>
+</div>
+
+<!-- closes bodywrap from header -->
+
+
+<p><!--webbot bot="PurpleText" PREVIEW="Don't change anything below this line." --> 
+
+</p></body></html>
