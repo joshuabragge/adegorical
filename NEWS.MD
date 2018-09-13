@@ -5,7 +5,9 @@
 
 *2018-09-12*
 
-Organized github layout in preperation for benchmarking, performance and various enhancements.
+* Organized github layout in preperation for benchmarking, performance and various enhancements.
+* Updated README heavily
+* Column names on binary don't make any sense - need to strip out the column prefixes.
 
 *2018-01-27*
 
