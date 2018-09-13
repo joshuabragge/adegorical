@@ -1,5 +1,5 @@
 # Adegorical
-Adegorical is a function for performing advanced transformations on categorical data in python. 
+Adegorical is a python package for performing advanced transformations on categorical data. 
 
 This function can handle:
 * Pandas series by returning a pandas dataframe
@@ -15,7 +15,7 @@ This function can handle:
 6. [Backward Difference Contrast](#backward-diff-contrast)
 7. [Simple Helmert](#simple-helmert)
 
-More information about the encoding methods can be found on [UCLA's Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm) or this [Presentation by Harris Holly](http://slideplayer.com/slide/6307838/)
+The encoding methods in this package were built off of the work found on [UCLA's Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm) and a [Presentation by Harris Holly](http://slideplayer.com/slide/6307838/). Unfortunately, UCLA removed the webpage from their website. [An archived version of the website is in this repository.](https://github.com/joshuabragge/adegorical/tree/master/Resources/UCLA%20Advance%20Categorical%20Variable%20Encoding%20Website)
 
 ## Getting Started
 ```python
