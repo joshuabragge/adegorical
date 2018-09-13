@@ -22,9 +22,9 @@ import adegorical as ad
 import pandas as pd
 
 colors = ['yellow', 'red', 'green', 'orange', 'red', 'yellow']
-pandas_frame = pd.DataFrame({'colors':colors})
+df = pd.DataFrame({'colors':colors})
 
-binary_pandas_frame = ad.get_categorical(pandas_frame['colors'],
+binary_pandas_frame = ad.get_categorical(df['colors'],
                                           encoding='binary',
                                           reference='red',
                                           column_name='binary')
