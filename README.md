@@ -51,6 +51,39 @@ binary_pandas_frame = ad.get_categorical(df['colors'],
 | 0 | 1 | 1 |
 | 0 | 0 | 0 |
 
+### Dummy
+Dummy is the standard when it comes to categorical variable encoding. N-1 columns is expected where N is the number of unique categorical variables.
+
+```python
+import adegorical as ad
+import pandas as pd
+
+colors = ['yellow', 'red', 'green', 'wenge', 'orange', 'red', 'yellow', 'blue', 'magenta', 'wenge']
+df = pd.DataFrame({'colors':colors})
+
+categorial_frame = ad.get_categorical(df['colors'],
+                                          encoding='dummy',
+                                          column_name=None)
+```
+
+| yellow_dummy | wenge_dummy | red_dummy | green_dummy | magenta_dummy | magenta_dummy |
+| ------------- |:-------------:| ------------:| ------------- |:-------------:| ------------:|
+|1|0|0|0|0|0|
+|0|0|1|0|0|0|
+|0|0|0|1|0|0|
+|0|1|0|0|0|0|
+|0|0|0|0|0|0|
+|0|0|1|0|0|0|
+|1|0|0|0|0|0|
+|0|0|0|0|0|1|
+|0|0|0|0|1|0|
+|0|1|0|0|0|0|
+
+### Binary
+
+
+
+
 ## Todo
 1. Forward Difference Regression
 2. Backward Difference Regression
