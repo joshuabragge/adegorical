@@ -1,7 +1,19 @@
 # Adegorical
 Adegorical is a python package for performing advanced transformations on [categorical data](https://en.wikipedia.org/wiki/Categorical_variable). This can be particularily useful in [regression analysis](https://en.wikipedia.org/wiki/Regression_analysis) but can be applied to other machine learning techniques (at your own peril).
 
-## Encoding Methods:
+## Table of Contents
+* [Encoding Methods](#encoding-methods)
+	- [Dummy](#dummy)
+	- [Binary](#binary)
+	- [Simple Contrast](#simple-contrast)
+	- [Simple Regression](#simple-regression)
+	- [Forward Difference Contrast](#forward-diff-contrast)
+	- [Backward Difference Contrast](#backward-diff-contrast)
+	- [Simple Helmert](#simple-helmert)
+* [Getting Started](#getting-started)
+* [Todo](#todo)
+
+## Encoding Methods
 1. [Dummy](#dummy)
 2. [Binary](#binary)
 3. [Simple Contrast](#simple-contrast)
@@ -38,7 +50,6 @@ binary_pandas_frame = ad.get_categorical(df['colors'],
 | 0 | 0 | 1 |
 | 0 | 1 | 1 |
 | 0 | 0 | 0 |
-
 
 ## Todo
 1. Forward Difference Regression
