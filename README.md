@@ -35,7 +35,7 @@ This function returns the data structure it is given:
 The encoding methods in this package were built off of the work found on [UCLA's Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm) and a [Presentation by Harris Holly](http://slideplayer.com/slide/6307838/). Unfortunately, UCLA removed the webpage from their website. [An archived version of the website can be found in this repository.](https://github.com/joshuabragge/adegorical/tree/master/Resources/UCLA%20Advance%20Categorical%20Variable%20Encoding%20Website)
 
 ### Dummy
-Dummy is the standard when it comes to categorical variable encoding. N-1 columns is expected where N is the number of unique categorical variables.
+[Dummy is the standard](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)) when it comes to categorical variable encoding. N-1 columns is expected where N is the number of unique categorical variables.
 
 ```python
 import adegorical as ad
