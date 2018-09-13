@@ -38,13 +38,13 @@ def _create_remapping_dict(column, reference=None):
         categorical_int_dict[reference] = swap_value
         categorical_int_dict[last_value_key] = reference_value
     else:
-        print('Reference is default')
+        #print('Reference is default')
     return categorical_int_dict
 
 
 def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=None, column_name=None):
 
-    print(remap_dict)
+    #print(remap_dict)
     import pandas as pd
      # --create columns-- #
     if column_name is None:
