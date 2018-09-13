@@ -350,7 +350,7 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
         return pandas_dataframe
 
     elif str(type(column)) == "<class 'numpy.ndarray'>":
-        numpy_array = _return_array(column, row_mappings_dict, remap_dict)
+        numpy_array = _return_array(column, row_mappings_dict, remap_dict, number_of_columns)
         return numpy_array
 
     elif str(type(column)) == "<class 'list'>":
