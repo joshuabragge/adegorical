@@ -7,13 +7,13 @@ This function can handle:
 * Python list by returning a list of lists
 
 ## Encoding Methods:
-1. [Dummy]
-2. [Binary]
-3. [Simple Contrast]
-4. [Simple Regression]
-5. [Forward Difference Contrast]
-6. [Backward Difference Contrast]
-7. [Simple] Helmert]
+1. [Dummy](#dummy)
+2. [Binary](#binary)
+3. [Simple Contrast](#simple-contrast)
+4. [Simple Regression](#simple-regression)
+5. [Forward Difference Contrast](#forward-diff-contrast)
+6. [Backward Difference Contrast](#backward-diff-contrast)
+7. [Simple Helmert](#simple-helmert)
 
 More information about the encoding methods can be found on [UCLA's Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm) or this [Presentation by Harris Holly](http://slideplayer.com/slide/6307838/)
 
