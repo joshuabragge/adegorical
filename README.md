@@ -93,6 +93,33 @@ categorial_frame = ad.get_categorical(df['colors'],
 |1|0|0|
 |0|0|1|
 
+### Simple Contrast
+Instead of all zeros on our reference as with dummy variables, the row becomes negative one. N-1 columns is expected
+
+```python
+colors = ['yellow', 'red', 'green', 'wenge', 'orange', 'red', 'yellow', 'blue', 'magenta', 'wenge']
+df = pd.DataFrame({'colors':colors})
+
+categorial_frame = ad.get_categorical(df['colors'],
+                                          encoding='simple_contrast',
+                                          reference='red',
+                                          column_name='simple_contrast')
+```
+
+|yellow_simple_contrast|wenge_simple_contrast|orange_simple_contrast|green_simple_contrast|magenta_simple_contrast|blue_simple_contrast|
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:------------:|
+|1|0|0|0|0|0|
+|-1|-1|-1|-1|-1|-1|
+|0|0|0|1|0|0|
+|0|1|0|0|0|0|
+|0|0|1|0|0|0|
+|-1|-1|-1|-1|-1|-1|
+|1|0|0|0|0|0|
+|0|0|0|0|0|1|
+|0|0|0|0|1|0|
+|0|1|0|0|0|0|
+
+
 
 ## Todo
 1. Forward Difference Regression
