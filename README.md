@@ -80,7 +80,7 @@ categorial_frame = ad.get_categorical(df['colors'],
                                           column_name='binary')
 ```
 
-| yellow_binary | orange_binary | green_binary |
+| binary_1 | binary_2 | binary_3 |
 |:-------------:|:-------------:|:------------:|
 |0|0|0|
 |1|1|0|
@@ -130,3 +130,4 @@ categorial_frame = ad.get_categorical(df['colors'],
 6. Regression Polynomial
 7. Deviation
 8. Deviation Regression
+9. Redo naming convension on binary
