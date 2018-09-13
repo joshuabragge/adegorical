@@ -68,7 +68,7 @@ categorial_frame = ad.get_categorical(df['colors'],
 |0|1|0|0|0|0|
 
 ### Binary
-All the columns in combination compose a binary representation of the categorical variable. The length of the string of the binary representation of the unique number of categorical variables is expected.
+All the columns in sequential combination compose a binary representation of the categorical variable. The length of the string of the binary representation of the unique number of categorical variables is expected.
 
 ```python
 colors = ['yellow', 'red', 'green', 'wenge', 'orange', 'red', 'yellow', 'blue', 'magenta', 'wenge']
