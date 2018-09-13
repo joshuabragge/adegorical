@@ -1,24 +1,21 @@
 # Adegorical
-Advanced transformations for categorical data.
+Adegorical is a function for performing advanced transformations on categorical data in python. 
 
 This function can handle:
 * Pandas series by returning a pandas dataframe
 * Numpy column by returning an numpy array
 * Python list by returning a list of lists
 
-## Adegorical Encoding Methods:
-1. Binary
-2. Dummy
-3. Simple Contrast
-4. Simple Regression
-5. Forward Difference Contrast
-6. Backward Difference Contrast
-7. Simple Helmert
+## Encoding Methods:
+1. [Dummy]
+2. [Binary]
+3. [Simple Contrast]
+4. [Simple Regression]
+5. [Forward Difference Contrast]
+6. [Backward Difference Contrast]
+7. [Simple] Helmert]
 
-[UCLA Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm)
-
-
-[Harris Holly Presentation](http://slideplayer.com/slide/6307838/)
+More information about the encoding methods can be found on [UCLA's Advance Categorical Variable Encoding](http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter5/sasreg5.htm) or this [Presentation by Harris Holly](http://slideplayer.com/slide/6307838/)
 
 ## Getting Started
 ```python
