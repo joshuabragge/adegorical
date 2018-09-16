@@ -74,8 +74,6 @@ def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, enc
 
 def _return_array(column, row_mappings_dict, remap_dict, number_of_columns):
 
-        import numpy as np
-
         # --remap dict to array-- #
         copy_column = np.copy(column)
         for k, v in remap_dict.items(): copy_column[column==k] = v
