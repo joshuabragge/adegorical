@@ -1,20 +1,15 @@
+import numpy as np
+import pandas as pd
+
+
+class OutOfRangeError(ValueError): pass
+class InvalidDataTypeError(ValueError): pass
+
+
 def help(encoding=None):
-    if encoding == 'dummy':
-        print('dummy')
-    elif encoding == 'binary':
-        print('binary')
-    elif encoding == 'simple_contrast':
-        print('simple_contrast')
-    elif encoding == 'simple_regression':
-        print('simple_regression')
-    elif encoding == 'forward_difference_contrast':
-          print('forward_difference_contrast')
-    elif encoding == 'backward_difference_contrast':
-            print('backward_difference_contrast')
-    else:
-        encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression', 'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
-        print(encoding_types)
-        return encoding_types
+    encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression', 
+                        'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
+    return encoding_types
 
 
 def _create_remapping_dict(column, reference=None):
@@ -24,6 +19,8 @@ def _create_remapping_dict(column, reference=None):
     '''
     # - returns dict for remapping categorical values to integers -- #
     unique_set = list(set(column))
+    if len(unique_set) <= 2:
+        raise OutOfRangeError("Input must have at least two unique values")
     unique_numbers = [x for x in range(len(unique_set))]
     categorical_int_dict = dict(zip(unique_set, unique_numbers))
 
@@ -44,8 +41,6 @@ def _create_remapping_dict(column, reference=None):
 
 def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=None, column_name=None):
 
-    #print(remap_dict)
-    import pandas as pd
      # --create columns-- #
     if column_name is None:
         if encoding is not None:
@@ -71,8 +66,6 @@ def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, enc
 
 
 def _return_array(column, row_mappings_dict, remap_dict, number_of_columns):
-
-        import numpy as np
 
         # --remap dict to array-- #
         copy_column = np.copy(column)
@@ -287,7 +280,6 @@ def _simple_helmert(column, unique_remapping_integers):
     last_value = list(unique_remapping_integers)[-1]
 
     for index in set(unique_remapping_integers):
-        print(index)
         if index == last_value:
             newrow = lastrow
         else:
@@ -300,10 +292,8 @@ def _simple_helmert(column, unique_remapping_integers):
 
             for indx, value in enumerate(newrow[index:]):
                 newrow[indx + index] = variable
-            print(newrow)
             newrow[index] = output
 
-        print(newrow)
         row_mappings_dict[index] = newrow
 
     return row_mappings_dict, number_of_columns
@@ -311,6 +301,8 @@ def _simple_helmert(column, unique_remapping_integers):
 
 def get_categorical(column, encoding=None, column_name=None, reference=None):
 
+    if column is None:
+        raise InvalidDataTypeError("Input cannot be of type None!")
     remap_dict = _create_remapping_dict(column=column, reference=reference)
     unique_remapping_integers = list(remap_dict.values())
 
@@ -338,75 +330,20 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
     else:  # dummy
         row_mappings_dict, number_of_columns = _dummy(column, unique_remapping_integers)
 
-    # to cleanup
-    #  row_map, equalizer, number_of_columns = get_row_mappings_dict(unique, encoding=encoding)
-
     series = list(column)
     unique = list(remap_dict.values())
 
-    # if pandas == True
-    if str(type(column)) == "<class 'pandas.core.series.Series'>":
+    if isinstance(column, pd.Series):
         pandas_dataframe = _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=encoding, column_name=column_name)
         return pandas_dataframe
 
-    elif str(type(column)) == "<class 'numpy.ndarray'>":
+    elif isinstance(column, np.ndarray):
         numpy_array = _return_array(column, row_mappings_dict, remap_dict, number_of_columns)
         return numpy_array
 
-    elif str(type(column)) == "<class 'list'>":
+    elif isinstance(column, list):
         liste = _return_list(column, row_mappings_dict, remap_dict)
         return liste
 
     else:
-        print('Not a Pandas.Series, Numpy.array or Python.list')
-        return None
-
-
-'''
-      to cleanup
-      elif encoding == 'forward difference regression': # forward difference regression // FDR - roosevelt
-          print('nothing')
-
-      elif encoding == 'backward difference regression':
-          print('nothing')
-
-
-      elif encoding == 'simple helmert regression':
-          print('nothing')
-
-      elif encoding == 'reverse helmert':
-          print('nothing')
-
-      elif encoding == 'reverse helmert regression':
-          print('nothing')
-
-      elif encoding == 'polynomial':
-          print('nothing')
-
-      elif encoding == 'regression polynomial': # same as simple contrast
-          print('nothing')
-
-      elif encoding == 'deviation':
-          equalizer = 1
-          length = len(unique)
-          baserow = [(-1/length) for x in range(len(unique)-equalizer)]
-          lastrow = baserow[:]
-          output = ((length-1)/length)
-          comparison = None
-
-      elif encoding == 'deviation regression': #same as simple contrast
-          equalizer = 1
-          baserow = [0 for x in range(len(unique)-equalizer)]
-          lastrow = [-1 for x in range(len(unique)-equalizer)]
-          output = 1
-          comparison = None
-
-      else:
-          # dummy encoding
-          equalizer = 1
-          baserow = [0 for x in range(len(unique)-equalizer)]
-          lastrow = baserow
-          output = 1
-          comparison = None
-          pass
-  '''
+        raise InvalidDataTypeError("Input does not match known types!")
