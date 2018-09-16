@@ -1,6 +1,11 @@
 import numpy as np
 import pandas as pd
 
+
+class OutOfRangeError(ValueError): pass
+class InvalidDataTypeError(ValueError): pass
+
+
 def help(encoding=None):
     if encoding == 'dummy':
         print('dummy')
@@ -27,6 +32,8 @@ def _create_remapping_dict(column, reference=None):
     '''
     # - returns dict for remapping categorical values to integers -- #
     unique_set = list(set(column))
+    if len(unique_set) <= 2:
+        raise OutOfRangeError("Input must have at least two unique values")
     unique_numbers = [x for x in range(len(unique_set))]
     categorical_int_dict = dict(zip(unique_set, unique_numbers))
 
@@ -311,6 +318,8 @@ def _simple_helmert(column, unique_remapping_integers):
 
 def get_categorical(column, encoding=None, column_name=None, reference=None):
 
+    if column is None:
+        raise InvalidDataTypeError("Input cannot be of type None!")
     remap_dict = _create_remapping_dict(column=column, reference=reference)
     unique_remapping_integers = list(remap_dict.values())
 
