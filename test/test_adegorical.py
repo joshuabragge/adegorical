@@ -106,38 +106,41 @@ class InputCheck(unittest.TestCase):
 		zero_dataset = []
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=zero_dataset, encoding=encoding_method)
 
 	def test_numpy_zero_len_dataset(self):
 		zero_dataset = np.array([])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=zero_dataset, encoding=encoding_method)
 			
 	def test_pandas_zero_len_dataset(self):
 		zero_dataset = pd.Series([])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=zero_dataset, encoding=encoding_method)
 	
 	def test_list_one_len_dataset(self):
 		one_dataset = ['len_of_one']
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=one_dataset, encoding=encoding_method)
 
 	def test_numpy_one_len_dataset(self):
 		one_dataset = np.array(['len_of_one'])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=one_dataset, encoding=encoding_method)
 			
 	def test_pandas_one_len_dataset(self):
 		one_dataset = pd.Series(['len_of_one'])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, column=one_dataset, encoding=encoding_method)
 
+	def test_none_input(self):
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.InvalidDataType, ad.get_categorical, column=None, encoding=encoding_method)
 
 if __name__ == '__main__':
     unittest.main()
