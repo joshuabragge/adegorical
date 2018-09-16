@@ -1,27 +1,22 @@
 import unittest
 
-import pandas as pd
 import numpy as np
-from adegorical import adegorical as ad
+import pandas as pd
+import scipy.stats as ss
 
-small_unique = 10
-medium_unique = 40
-large_unique = 100
-insane_unique = 1000
+import adegorical as ad
 
-count_multiplier = 10
+base_categories = 10
+base_size = 100
+multiplier = 10
 
-categorical_data_simple = ['yellow', 'red', 'yellow','red', 'magenta']
-categorical_data_small_unique_small_count = [str(x) for x in range(small_unique)] + [str(x*2) for x in range(int(small_unique/2))] + [str(x*3) for x in reversed(range(int(small_unique/3)))]
-categorical_data_medium_unique_small_count = [str(x) for x in range(medium_unique)] + [str(x*2) for x in range(int(medium_unique/2))] + [str(x*3) for x in reversed(range(int(medium_unique/3)))]
-categorical_data_large_unique_small_count = [str(x) for x in range(large_unique)] + [str(x*2) for x in range(int(large_unique/2))] + [str(x*3) for x in reversed(range(int(large_unique/3)))]
+data_simple = ['yellow', 'red', 'yellow','red', 'magenta']
+# 10 unique / 100 count
+data_small = ss.truncnorm.rvs(0, base_categories, size=base_size)
+# 50 unique/ 1000 count
+data_medium = ss.truncnorm.rvs(0, base_categories*multiplier/2, size=base_size*multiplier)
 
-categorical_data_small_unique_large_count = categorical_data_small_unique_small_count * count_multiplier
-categorical_data_medium_unique_large_count = categorical_data_medium_unique_small_count * count_multiplier
-categorical_data_large_unique_large_count = categorical_data_large_unique_small_count * count_multiplier
-
-test_datasets = [categorical_data_small_unique_large_count, categorical_data_medium_unique_large_count, categorical_data_large_unique_large_count,
-				 categorical_data_small_unique_small_count, categorical_data_medium_unique_small_count, categorical_data_large_unique_small_count]
+test_datasets = [data_simple, data_small, data_medium]
 
 
 class Help(unittest.TestCase):
@@ -45,20 +40,20 @@ class DataType(unittest.TestCase):
 	encoding_methods = ad.help()
 
 	def test_pandas_series_output(self):
-		pandas_series = pd.Series(categorical_data_simple)
+		pandas_series = pd.Series(data_simple)
 		for encoding_method in self.encoding_methods:
 			encoded_results_pandas = ad.get_categorical(pandas_series, encoding=encoding_method)
 			self.assertTrue(isinstance(encoded_results_pandas, pd.DataFrame))
 
 	def test_numpy_array_output(self):
-		numpy_array = np.array(categorical_data_simple)
+		numpy_array = np.array(data_simple)
 		for encoding_method in self.encoding_methods:
 			encoded_results_numpy = ad.get_categorical(numpy_array, encoding=encoding_method)
 			self.assertTrue(isinstance(encoded_results_numpy, np.ndarray))
 				
 
 	def test_list_output(self):
-		python_list = categorical_data_simple
+		python_list = data_simple
 		for encoding_method in self.encoding_methods:
 			encoded_results_list = ad.get_categorical(python_list, encoding=encoding_method)	
 			self.assertTrue(isinstance(encoded_results_list, list))
