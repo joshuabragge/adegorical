@@ -24,35 +24,40 @@ multiplier = 10
 data_small = ss.truncnorm.rvs(0, base_categories, size=base_size)
 data_medium = ss.truncnorm.rvs(0, base_categories*multiplier, size=base_size*multiplier)
 data_large = ss.truncnorm.rvs(0, base_categories*multiplier**2, size=base_size*multiplier**2)
-data_massive = ss.truncnorm.rvs(0, base_categories*multiplier**3, size=base_size*multiplier**3)
+# data_massive = ss.truncnorm.rvs(0, base_categories*multiplier**3, size=base_size*multiplier**3)
 
 data_sets = [data_small, data_medium, 
-			 data_large, data_massive]
+			 data_large]
 
 data_sets_name = ['data_small', 'data_medium', 
-			 	  'data_large', 'data_massive']
+			 	  'data_large']
 
 encoding_methods = ad.help()
 
 for encoding_method in encoding_methods:
+	print('==================== Checking ', encoding_method, 'Encoding ====================')
 
 	for index, data_set in enumerate(data_sets):
+		print('--- Loading ',data_sets_name[index], '---')
 
 		list_data = list(data_set)
 		numpy_data = data_set
 		pandas_data = pd.Series(data_set)
 
 		# baseline 
-
+		print('=== Checking Baseline ===')
 		baseline_results = timeit.Timer(lambda: pd.get_dummies(pandas_data)).timeit(number=2)
 
 		# list
+		print('=== Checking List ===')
 		list_results = timeit.Timer(lambda: ad.get_categorical(list_data, encoding=encoding_method)).timeit(number=2)
 
 		# numpy 
+		print('=== Checking Numpy ===')
 		numpy_results = timeit.Timer(lambda: ad.get_categorical(numpy_data, encoding=encoding_method)).timeit(number=2)
 
 		# pandas
+		print('=== Checking Pandas ===')
 		pandas_results = timeit.Timer(lambda: ad.get_categorical(pandas_data, encoding=encoding_method)).timeit(number=2)
 
 		performance['pandas'] = {encoding_method: {data_sets_name[index]: pandas_results}}
