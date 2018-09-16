@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def help(encoding=None):
     if encoding == 'dummy':
         print('dummy')
@@ -45,7 +48,6 @@ def _create_remapping_dict(column, reference=None):
 def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=None, column_name=None):
 
     #print(remap_dict)
-    import pandas as pd
      # --create columns-- #
     if column_name is None:
         if encoding is not None:
