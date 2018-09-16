@@ -350,15 +350,15 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
     series = list(column)
     unique = list(remap_dict.values())
 
-    if str(type(column)) == "<class 'pandas.core.series.Series'>":
+    if isinstance(column, pd.Series):
         pandas_dataframe = _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=encoding, column_name=column_name)
         return pandas_dataframe
 
-    elif str(type(column)) == "<class 'numpy.ndarray'>":
+    elif isinstance(column, np.ndarray):
         numpy_array = _return_array(column, row_mappings_dict, remap_dict, number_of_columns)
         return numpy_array
 
-    elif str(type(column)) == "<class 'list'>":
+    elif isinstance(column, list):
         liste = _return_list(column, row_mappings_dict, remap_dict)
         return liste
 
