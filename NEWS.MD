@@ -5,9 +5,10 @@
 
 *2018-09-15*
 
-* Added baseline test cases for dummmy - this will be used for the rest of the encoding method checks
-* Added raise error checks to incorrect data types and none inputs 
-* Removed unused code, debugging print statements and general cleaning up
+* Added baseline test cases for dummmy - this will be used for the rest of the encoding method checks.
+* Added raise error checks to incorrect data types and none inputs. 
+* Removed unused code, debugging print statements and general cleaning up.
+* Added initial benchmarking file for performance measuring.
 
 *2018-09-12*
 
