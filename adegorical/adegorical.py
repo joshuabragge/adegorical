@@ -363,5 +363,4 @@ def get_categorical(column, encoding=None, column_name=None, reference=None):
         return liste
 
     else:
-        print('Not a Pandas.Series, Numpy.array or Python.list')
-        return None
+        raise InvalidDataTypeError("Input does not match known types!")
