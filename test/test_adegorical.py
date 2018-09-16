@@ -102,41 +102,41 @@ class InputCheck(unittest.TestCase):
 
 	encoding_methods = ad.help()
 
-	def test_dummy_list_zero_len_dataset(self):
+	def test_list_zero_len_dataset(self):
 		zero_dataset = []
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
 
-	def test_dummy_numpy_zero_len_dataset(self):
-		zero_dataset = []
+	def test_numpy_zero_len_dataset(self):
+		zero_dataset = np.array([])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
 			
-	def test_dummy_pandas_zero_len_dataset(self):
-		zero_dataset = []
+	def test_pandas_zero_len_dataset(self):
+		zero_dataset = pd.Series([])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encoding=encoding_method)
 	
-	def test_dummy_list_one_len_dataset(self):
+	def test_list_one_len_dataset(self):
 		one_dataset = ['len_of_one']
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
 
-	def test_dummy_numpy_one_len_dataset(self):
-		one_dataset = ['len_of_one']
+	def test_numpy_one_len_dataset(self):
+		one_dataset = np.array(['len_of_one'])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
 			
-	def test_dummy_pandas_one_len_dataset(self):
-		one_dataset = ['len_of_one']
+	def test_pandas_one_len_dataset(self):
+		one_dataset = pd.Series(['len_of_one'])
 
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encoding=encoding_method)
 
 
 if __name__ == '__main__':
