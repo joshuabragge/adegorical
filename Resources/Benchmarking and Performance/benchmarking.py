@@ -14,10 +14,6 @@ import adegorical as ad
 
 performance = []
 
-setup_code = '''import pandas as pd
-import numpy as np
-import adegorical as ad'''
-
 ## Generate random data
 
 np.random.seed(seed=1)
@@ -78,7 +74,8 @@ for encoding_method in encoding_methods:
 
 df = pd.DataFrame(performance)
 df.columns = ['Data Type','Encoding Method', 'Data Size', 'Performance']
-df.to_csv('performance.csv',index=False)
+file_pathname = os.path.join('Test Results', 'performance.csv')
+df.to_csv(file_pathname, index=False)
 
 
 ## Column increase graph
@@ -90,7 +87,7 @@ for option in encoding_methods:
     number_of_columns = []
     for i in range(max_range):
         random_data = [str(x) for x in range(i+3)]
-        columns_count = ad.get_categorical(pd.Series(random_data),encoding=option).shape[1]
+        columns_count = ad.get_categorical(pd.Series(random_data), encoding=option).shape[1]
         number_of_columns.append(columns_count)
     results.append(number_of_columns)
 
@@ -98,4 +95,5 @@ for index,encoding_result in enumerate(results):
     plt.plot(unique_categorical_count, encoding_result, label=encoding_methods[index])
 plt.legend()
 # plt.show()
-plt.savefig('fig')
+image_pathname = os.path.join('Test Results','column-growth-per-encoding')
+plt.savefig(image_name)
