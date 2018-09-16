@@ -41,7 +41,6 @@ def _create_remapping_dict(column, reference=None):
 
 def _return_pandas(column, row_mappings_dict, remap_dict, number_of_columns, encoding=None, column_name=None):
 
-    #print(remap_dict)
      # --create columns-- #
     if column_name is None:
         if encoding is not None:
@@ -281,7 +280,6 @@ def _simple_helmert(column, unique_remapping_integers):
     last_value = list(unique_remapping_integers)[-1]
 
     for index in set(unique_remapping_integers):
-        print(index)
         if index == last_value:
             newrow = lastrow
         else:
@@ -294,10 +292,8 @@ def _simple_helmert(column, unique_remapping_integers):
 
             for indx, value in enumerate(newrow[index:]):
                 newrow[indx + index] = variable
-            print(newrow)
             newrow[index] = output
 
-        print(newrow)
         row_mappings_dict[index] = newrow
 
     return row_mappings_dict, number_of_columns
