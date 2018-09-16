@@ -96,13 +96,47 @@ class DummyEncoding(unittest.TestCase):
 			encoded_results_column_count = len(ad.get_categorical(test_dataset_numpy, encoding='dummy')[0])
 			self.assertEqual(test_dataset_column_count, encoded_results_column_count)
 
-	def test_dummy_zero_len_dataset(self):
-		encoding_methods = ad.help()
+
+class InputCheck(unittest.TestCase):
+	"""Checks edge cases to make sure proper handling is administrated"""
+
+	encoding_methods = ad.help()
+
+	def test_dummy_list_zero_len_dataset(self):
 		zero_dataset = []
 
 		for encoding_method in self.encoding_methods:
-			encoded_results_numpy = ad.get_categorical(numpy_array, encoding=encoding_method)
-			self.assertTrue(isinstance(encoded_results_numpy, np.ndarray))
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+
+	def test_dummy_numpy_zero_len_dataset(self):
+		zero_dataset = []
+
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+			
+	def test_dummy_pandas_zero_len_dataset(self):
+		zero_dataset = []
+
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, zero_dataset, encodoing=encoding_method)
+	
+	def test_dummy_list_one_len_dataset(self):
+		one_dataset = ['len_of_one']
+
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
+
+	def test_dummy_numpy_one_len_dataset(self):
+		one_dataset = ['len_of_one']
+
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
+			
+	def test_dummy_pandas_one_len_dataset(self):
+		one_dataset = ['len_of_one']
+
+		for encoding_method in self.encoding_methods:
+			self.assertRaises(ad.OutOfRangeError, ad.get_categorical, one_dataset, encodoing=encoding_method)
 
 
 if __name__ == '__main__':
