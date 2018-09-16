@@ -7,22 +7,9 @@ class InvalidDataTypeError(ValueError): pass
 
 
 def help(encoding=None):
-    if encoding == 'dummy':
-        print('dummy')
-    elif encoding == 'binary':
-        print('binary')
-    elif encoding == 'simple_contrast':
-        print('simple_contrast')
-    elif encoding == 'simple_regression':
-        print('simple_regression')
-    elif encoding == 'forward_difference_contrast':
-          print('forward_difference_contrast')
-    elif encoding == 'backward_difference_contrast':
-            print('backward_difference_contrast')
-    else:
-        encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression', 'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
-        print(encoding_types)
-        return encoding_types
+    encoding_types = ['dummy', 'binary', 'simple_contrast', 'simple_regression', 
+                        'backward_difference_contrast', 'forward_difference_contrast', 'simple_helmert']
+    return encoding_types
 
 
 def _create_remapping_dict(column, reference=None):
