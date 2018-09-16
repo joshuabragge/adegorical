@@ -3,6 +3,12 @@
 
 ## v0.8
 
+*2018-09-15*
+
+* Added baseline test cases for dummmy - this will be used for the rest of the encoding method checks
+* Added raise error checks to incorrect data types and none inputs 
+* Removed unused code, debugging print statements and general cleaning up
+
 *2018-09-12*
 
 * Organized github layout in preperation for benchmarking, performance and various enhancements.
