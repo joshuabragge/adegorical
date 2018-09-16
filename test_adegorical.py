@@ -10,6 +10,8 @@ base_categories = 10
 base_size = 100
 multiplier = 10
 
+np.random.seed(seed=1)
+
 data_simple = ['yellow', 'red', 'yellow','red', 'magenta']
 # 10 unique / 100 count
 data_small = ss.truncnorm.rvs(0, base_categories, size=base_size)
