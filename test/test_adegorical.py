@@ -140,7 +140,7 @@ class InputCheck(unittest.TestCase):
 
 	def test_none_input(self):
 		for encoding_method in self.encoding_methods:
-			self.assertRaises(ad.InvalidDataType, ad.get_categorical, column=None, encoding=encoding_method)
+			self.assertRaises(ad.InvalidDataTypeError, ad.get_categorical, column=None, encoding=encoding_method)
 
 if __name__ == '__main__':
     unittest.main()
