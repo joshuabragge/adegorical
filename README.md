@@ -94,7 +94,7 @@ categorial_frame = ad.get_categorical(df['colors'],
 |0|0|1|
 
 ### Simple Contrast
-Instead of all zeros on our reference as with dummy variables, the row becomes negative one. N-1 columns is expected
+Instead of all zeros on our reference value as with dummy variables, the row becomes negative one. N-1 columns is expected
 
 ```python
 colors = ['yellow', 'red', 'green', 'wenge', 'orange', 'red', 'yellow', 'blue', 'magenta', 'wenge']
