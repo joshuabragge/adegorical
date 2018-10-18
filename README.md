@@ -122,6 +122,8 @@ categorial_frame = ad.get_categorical(df['colors'],
 
 
 ## Todo
+### Enhancements
+#### Encoding Methods
 1. Forward Difference Regression
 2. Backward Difference Regression
 3. Simple Helmert Regression
@@ -130,4 +132,13 @@ categorial_frame = ad.get_categorical(df['colors'],
 6. Regression Polynomial
 7. Deviation
 8. Deviation Regression
-9. Redo naming convension on binary
+#### Performance
+1. Manipulate data in native format rather than converting to lists and back to native format (i.e. pandas data input, transforming via optimized pandas methods) 
+#### Miscellaneous
+1. Redo column naming convension on binary. Results are a combination of columns so having a "blue" column doesn't make much sense
+### Readme
+1. Simple Regression
+2. Backward Difference Contrast
+3. Forward Difference Contrast
+4. Simple Helmert
+5. Remaining encoding methods found in todo encoding methods
